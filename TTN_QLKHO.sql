@@ -3,6 +3,16 @@ GO
 
 -- TAO BANG BO MON
 
+create table NhanVien
+(
+ma varchar(20) primary key,
+ten nvarchar(50),
+ngaysinh date,
+gioitinh bit,
+diachi nvarchar(50),
+dienthoai int,
+chucvu nvarchar(50)
+)
 create table DMKho
 (
 ma_kho varchar(20) primary key,
@@ -42,9 +52,11 @@ ngayCT date,
 kho_ma varchar(20),
 nguoi_nhan nvarchar(50),
 noidung text,
-kh_ma varchar(20)
+kh_ma varchar(20),
+nv_ma varchar(20)
 FOREIGN KEY(kho_ma) REFERENCES DMKho(ma_kho),
-FOREIGN KEY(kh_ma) REFERENCES DMKhachHang(ma_kh)
+FOREIGN KEY(kh_ma) REFERENCES DMKhachHang(ma_kh),
+FOREIGN KEY(nv_ma) REFERENCES NhanVien(ma)
 
 )
 
@@ -78,9 +90,11 @@ ngayCT date,
 ncc_ma varchar(20),
 nguoi_giao nvarchar(50),
 noidung text,
-kho_ma varchar(20)
+kho_ma varchar(20),
+nv_ma varchar(20)
 FOREIGN KEY(kho_ma) REFERENCES DMKho(ma_kho),
-FOREIGN KEY(ncc_ma) REFERENCES DMNhaCungCap(ma_ncc)
+FOREIGN KEY(ncc_ma) REFERENCES DMNhaCungCap(ma_ncc),
+FOREIGN KEY(nv_ma) REFERENCES NhanVien(ma)
 
 )
 
@@ -97,6 +111,15 @@ FOREIGN KEY(pn_soma) REFERENCES PhieuNhap(maso_pn),
 FOREIGN KEY(hh_ma) REFERENCES DMHangHoa(ma_hh)
 
 )
+
+
+
+
+INSERT INTO NhanVien VALUES('NV001' ,N'Nguyễn Văn An', '04/05/1992', '0' , N'Hà Nội','0123432567',N'Quản Lí'),
+                            ('NV002' ,N'Lê Văn An', '04/08/1992', '0' , N'Hà Nội','0123432567',N'Dịch Vụ'),
+							('NV003' ,N'Hoàng Văn Nam', '04/07/1992', '0' , N'Hà Nội','0123432567',N'Thu Ngân'),
+							('NV004' ,N'Nguyễn Văn Bình', '10/05/1992', '0' , N'Hà Nội','0123432567',N'Bán Hàng'),
+							('NV005' ,N'Nguyễn Văn Cường', '04/09/1992', '0' , N'Hà Nội','0123432567',N'Quản Lí')
 
 --insert bảng danh mục kho , mã kho , tên kho
 
@@ -135,11 +158,11 @@ INSERT INTO DMHangHoa VALUES ('HH001','gạo','N002'),
 
 	
 
-INSERT INTO PhieuXuat VALUES ('PX001', '02/03/2015','MK001',N'Lê văn Nam' ,'nội dung nhận hàng' , 'KH001'),
-                             ('PX002', '02/03/2015','MK002',N'Lê văn Nam' ,'nội dung nhận hàng' , 'KH002'),
-							 ('PX003', '02/03/2015','MK003',N'Lê văn Nam' ,'nội dung nhận hàng' , 'KH003'),
-							 ('PX004', '02/03/2015','MK004',N'Lê văn Nam' ,'nội dung nhận hàng' , 'KH004'),
-							 ('PX005', '02/03/2015','MK005',N'Lê văn Nam' ,'nội dung nhận hàng' , 'KH005')
+INSERT INTO PhieuXuat VALUES ('PX001', '02/03/2015','MK001',N'Lê văn Nam' ,'nội dung nhận hàng' , 'KH001' ,'NV001'),
+                             ('PX002', '02/03/2015','MK002',N'Lê văn Nam' ,'nội dung nhận hàng' , 'KH002','NV002'),
+							 ('PX003', '02/03/2015','MK003',N'Lê văn Nam' ,'nội dung nhận hàng' , 'KH003','NV003'),
+							 ('PX004', '02/03/2015','MK004',N'Lê văn Nam' ,'nội dung nhận hàng' , 'KH004','NV004'),
+							 ('PX005', '02/03/2015','MK005',N'Lê văn Nam' ,'nội dung nhận hàng' , 'KH005','NV005')
 
 
 
@@ -159,11 +182,11 @@ INSERT INTO DMNhaCungCap VALUES ('NCC01' , N'Thực phẩm sạch HN' , N'Hà N�
 
 
 
-INSERT INTO PhieuNhap VALUES ('PN001', '04/05/2015', 'NCC01' , N'Nguyễn Văn Nam','nội dung nhập hàng bao nhiêu, số lượng hàng','MK001'),
-                                ('PN002', '04/05/2015', 'NCC02' , N'Nguyễn Văn Bình','nội dung nhập hàng bao nhiêu, số lượng hàng','MK002'),
-								('PN003', '04/05/2015', 'NCC03' , N'Nguyễn Văn An','nội dung nhập hàng bao nhiêu, số lượng hàng','MK003'),
-								('PN004', '04/05/2015', 'NCC04' , N'Nguyễn Văn Bảo','nội dung nhập hàng bao nhiêu, số lượng hàng','MK004'),
-								('PN005', '04/05/2015', 'NCC05' , N'Nguyễn Văn Hải','nội dung nhập hàng bao nhiêu, số lượng hàng','MK005')
+INSERT INTO PhieuNhap VALUES ('PN001', '04/05/2015', 'NCC01' , N'Nguyễn Văn Nam','nội dung nhập hàng bao nhiêu, số lượng hàng','MK001','NV001'),
+                                ('PN002', '04/05/2015', 'NCC02' , N'Nguyễn Văn Bình','nội dung nhập hàng bao nhiêu, số lượng hàng','MK002','NV001'),
+								('PN003', '04/05/2015', 'NCC03' , N'Nguyễn Văn An','nội dung nhập hàng bao nhiêu, số lượng hàng','MK003','NV001'),
+								('PN004', '04/05/2015', 'NCC04' , N'Nguyễn Văn Bảo','nội dung nhập hàng bao nhiêu, số lượng hàng','MK004','NV001'),
+								('PN005', '04/05/2015', 'NCC05' , N'Nguyễn Văn Hải','nội dung nhập hàng bao nhiêu, số lượng hàng','MK005','NV001')
 
 
 
