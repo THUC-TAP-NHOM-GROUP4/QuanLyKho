@@ -34,10 +34,6 @@ namespace QuanLyKho
             Skins();
         }
 
-        private void xtraTabControl1_Click(object sender, EventArgs e)
-        {
-        }
-
        
         public static bool KiemTraTabPage(string Ten)
         {
@@ -114,6 +110,26 @@ namespace QuanLyKho
             xtraTabControl1.TabPages.Remove((arg.Page as XtraTabPage));
             xtraTabControl1.SelectedTabPageIndex = h - 1;
         }
-    
+
+        private void barButtonItem_ThongKe_DoanhThu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            XtraTabPage tabTK_DoanhThu = new XtraTabPage();
+            tabTK_DoanhThu.Text = "Doanh thu theo tháng";
+            if (KiemTraTabPage(tabTK_DoanhThu.Text) == false)
+                xtraTabControl1.TabPages.Add(tabTK_DoanhThu);
+            else
+                tabTK_DoanhThu.PageVisible = true;
+            UC_ThongKe_DoanhThu ds = new UC_ThongKe_DoanhThu();
+            ds.Parent = xtraTabControl1.TabPages[ViTriTabPage(tabTK_DoanhThu.Text)];
+            ds.Dock = DockStyle.Fill;
+            ds.Show();
+            xtraTabControl1.SelectedTabPage = xtraTabControl1.TabPages[ViTriTabPage(tabTK_DoanhThu.Text)];
+
+        }
+
+        private void barButtonItem_ThongKe_NhapXuat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
     }
 }
