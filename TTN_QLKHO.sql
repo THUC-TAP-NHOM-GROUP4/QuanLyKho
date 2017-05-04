@@ -69,6 +69,7 @@ hanghoama varchar(20),
 khoma varchar(20),
 soluong int,
 dongia float,
+thanhtien money,
 FOREIGN KEY(phieuxuatma) REFERENCES PhieuXuat(ma),
 FOREIGN KEY(hanghoama) REFERENCES HangHoa(ma),
 FOREIGN KEY(khoma) REFERENCES Kho(ma)
@@ -102,15 +103,16 @@ FOREIGN KEY(nhanvienma) REFERENCES NhanVien(ma)
 
 
 
-create table ChiTietPhieuNhan
+create table ChiTietPhieuNhap
 (
 ma varchar(20) primary key ,
-phieunhanma varchar(20),
+phieunhapma varchar(20),
 hanghoama varchar(20),
 khoma varchar(20),
 soluong int , 
 dongia float,
-FOREIGN KEY(phieunhanma) REFERENCES PhieuNhap(ma),
+thanhtien money,
+FOREIGN KEY(phieunhapma) REFERENCES PhieuNhap(ma),
 FOREIGN KEY(hanghoama) REFERENCES HangHoa(ma),
 FOREIGN KEY(khoma) REFERENCES Kho(ma)
 )
