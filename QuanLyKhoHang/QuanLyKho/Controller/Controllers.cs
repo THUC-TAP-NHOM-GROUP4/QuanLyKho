@@ -68,5 +68,28 @@ namespace QuanLyKho.Controller
             }
             return DoanhThu;
         }
+        public int[] getNam()
+        {
+            DataTable table = da.Query("select distinct CONVERT(CHAR(4), ngay, 120) as [nam]  from PhieuNhap ");
+            DataTable table1 = da.Query("select distinct CONVERT(CHAR(4), ngay, 120) as [nam]  from PhieuXuat ");
+            int n = table.Rows.Count;
+            int n1 = table1.Rows.Count;
+            int[] nam = new int[n+ n1];
+            double min = 0, max = 0, temp;
+            int i, j= 0;
+            if (n == 0 && n1== 0) return new int[0];
+            
+            for (i = 0; i < n; i++)
+                nam[i] = int.Parse(table.Rows[i]["nam"].ToString().Trim());
+            j = 0;
+            for (i = n; i < n + n1; i++)
+            {
+                nam[i] = int.Parse(table1.Rows[j]["nam"].ToString().Trim());
+                if (j == n1 ) break;
+                j++;
+            }
+            nam = nam.Distinct().ToArray();
+            return nam;
+        }
     }
 }

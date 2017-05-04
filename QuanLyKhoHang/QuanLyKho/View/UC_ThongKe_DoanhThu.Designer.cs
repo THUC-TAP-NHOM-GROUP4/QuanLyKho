@@ -34,6 +34,7 @@
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cbbThongKe_nam = new System.Windows.Forms.ComboBox();
             this.chartDoanhThu = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartDoanhThu)).BeginInit();
@@ -42,6 +43,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel1.Controls.Add(this.cbbThongKe_nam);
             this.panel1.Controls.Add(this.chartDoanhThu);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.MaximumSize = new System.Drawing.Size(931, 534);
@@ -49,6 +51,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(931, 534);
             this.panel1.TabIndex = 0;
+            // 
+            // cbbThongKe_nam
+            // 
+            this.cbbThongKe_nam.FormattingEnabled = true;
+            this.cbbThongKe_nam.Location = new System.Drawing.Point(23, 14);
+            this.cbbThongKe_nam.Name = "cbbThongKe_nam";
+            this.cbbThongKe_nam.Size = new System.Drawing.Size(121, 21);
+            this.cbbThongKe_nam.TabIndex = 1;
+            this.cbbThongKe_nam.Text = "Năm";
+            this.cbbThongKe_nam.SelectedIndexChanged += new System.EventHandler(this.cbbThongKe_nam_SelectedIndexChanged);
             // 
             // chartDoanhThu
             // 
@@ -93,5 +105,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartDoanhThu;
+        private System.Windows.Forms.ComboBox cbbThongKe_nam;
     }
 }
