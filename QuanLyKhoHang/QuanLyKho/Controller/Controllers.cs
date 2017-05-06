@@ -19,6 +19,7 @@ namespace QuanLyKho.Controller
                 + " inner join PhieuNhap pn on pn.ma = ct.phieunhapma "
                 + " inner join NhanVien nv on nv.ma = pn.nhanvienma  "
                 + " group by hh.ma, hh.ten, pn.ma, ct.ma, pn.ngay, ct.soluong, ct.dongia, ct.thanhtien, nv.ten");
+
             int n = table.Rows.Count;
             if (n == 0) return new HangHoaNhap[0];
             HangHoaNhap[] list = new HangHoaNhap[n];
@@ -26,23 +27,110 @@ namespace QuanLyKho.Controller
             int i = 0;
             Double temp = 0;
             for (i = 0; i < n; i++)
+                list[i] = getHangHoa(table.Rows[i]);
+            return list;
+        }
+        public HangHoaNhap[] getList_HangHoa(String hanghoama, String phieunhanma)
+        {
+            String str = "select distinct hh.ma, hh.ten, pn.ma as [phieunhapma], ct.ma as [chitietphieunhapma], pn.ngay, ct.soluong, "
+                + " ct.dongia, ct.thanhtien, nv.ten as [tennhanvien]  from hanghoa hh "
+                + " inner join chitietphieunhap ct on ct.hanghoama = hh.ma "
+                + " inner join PhieuNhap pn on pn.ma = ct.phieunhapma "
+                + " inner join NhanVien nv on nv.ma = pn.nhanvienma  ";
+            DataTable table;
+            if (hanghoama == "tất cả" && phieunhanma == "tất cả") return getList_HangHoa();
+            if (hanghoama == "tất cả") 
+                    str += " where pn.ma = '" + phieunhanma + "'  group by hh.ma, hh.ten, pn.ma, ct.ma, pn.ngay, ct.soluong, ct.dongia, ct.thanhtien, nv.ten";
+
+            else str += " where hh.ma = '" + hanghoama + "'  group by hh.ma, hh.ten, pn.ma, ct.ma, pn.ngay, ct.soluong, ct.dongia, ct.thanhtien, nv.ten";
+            
+
+            table = da.Query(str);
+            int n = table.Rows.Count;
+            if (n == 0) return new HangHoaNhap[0];
+            HangHoaNhap[] list = new HangHoaNhap[n];
+            DateTime ngay = DateTime.Now;
+            int i = 0;
+            Double temp = 0;
+            for (i = 0; i < n; i++)
+                list[i] = getHangHoa(table.Rows[i]);
+            return list;
+        }
+        private HangHoaNhap getHangHoa(DataRow row)
+        {
+            DateTime ngay = DateTime.Now;
+            Double temp = 0;
+            HangHoaNhap hanghoanhap = new HangHoaNhap();
+            hanghoanhap.Ma = row["ma"].ToString().Trim();
+            hanghoanhap.Ten = row["ten"].ToString().Trim();
+            hanghoanhap.PhieuNhapMa = row["phieunhapma"].ToString().Trim();
+            hanghoanhap.ChiTietPhieuNhapMa = row["chitietphieunhapma"].ToString().Trim();
+            if (DateTime.TryParse(row["ngay"].ToString().Trim(), out ngay))
             {
-                list[i] = new HangHoaNhap();
-                list[i].Ma = table.Rows[i]["ma"].ToString().Trim();
-                list[i].Ten = table.Rows[i]["ten"].ToString().Trim();
-                list[i].PhieuNhapMa = table.Rows[i]["phieunhapma"].ToString().Trim();
-                list[i].ChiTietPhieuNhapMa = table.Rows[i]["chitietphieunhapma"].ToString().Trim();
-                if (DateTime.TryParse(table.Rows[i]["ngay"].ToString().Trim(), out ngay))
-                {
-                    list[i].NgayNhap = ngay;
-                }
-                if (Double.TryParse(table.Rows[i]["soluong"].ToString().Trim(), out temp)) { list[i].SoLuong = temp; temp = 0; }
-                if (Double.TryParse(table.Rows[i]["thanhtien"].ToString().Trim(), out temp)) { list[i].ThanhTien = temp; temp = 0; }
-                if (Double.TryParse(table.Rows[i]["dongia"].ToString().Trim(), out temp)) { list[i].DonGia = temp; temp = 0; }
+                hanghoanhap.NgayNhap = ngay;
+            }
+            if (Double.TryParse(row["soluong"].ToString().Trim(), out temp)) { hanghoanhap.SoLuong = temp; temp = 0; }
+            if (Double.TryParse(row["thanhtien"].ToString().Trim(), out temp)) { hanghoanhap.ThanhTien = temp; temp = 0; }
+            if (Double.TryParse(row["dongia"].ToString().Trim(), out temp)) { hanghoanhap.DonGia = temp; temp = 0; }
 
-                list[i].TenNhanVien = table.Rows[i]["tennhanvien"].ToString().Trim();
+            hanghoanhap.TenNhanVien = row["tennhanvien"].ToString().Trim();
 
-
+            return hanghoanhap;
+        }
+        public String[] getList_PhieuNhap()
+        {
+            DataTable table = da.Query("select ma from phieunhap");
+            int n = table.Rows.Count;
+            String[] list = new String[n  + 1];
+            int i = 0;
+            for (i = 0; i < n; i++)
+            {
+                list[i] = table.Rows[i]["ma"].ToString().Trim();
+            }
+            list[n] = "tất cả";
+            return list;
+        }
+        public String[] getList_PhieuNhap(String HangHoaMa)
+        {
+            String str = "";
+            if (HangHoaMa == "tất cả") str = "  select DISTINCT PN.MA from PhieuNhap pn ";
+            else str = "  select DISTINCT PN.MA from PhieuNhap pn inner join ChiTietPhieuNhap ct"
+                + " on  pn.ma = ct.phieunhapma  where CT.hanghoama = '" + HangHoaMa + "' ";
+            DataTable table = da.Query(str);
+            int n = table.Rows.Count;
+            String[] list = new String[n + 1];
+            int i = 0;
+            for (i = 0; i < n; i++)
+            {
+                list[i] = table.Rows[i]["ma"].ToString().Trim();
+            }
+            list[n] = "tất cả";
+            return list;
+        }
+        public String[] getList_HangHoa_Ma()
+        {
+            DataTable table = da.Query("select ma from hanghoa");
+            int n = table.Rows.Count;
+            String[] list = new String[n + 1];
+            int i = 0;
+            for (i = 0; i < n; i++)
+            {
+                list[i] = table.Rows[i]["ma"].ToString().Trim();
+            }
+            list[n] = "tất cả";
+            return list;
+        }
+        public String[] getList_HangHoa_Ma(String PhieuNhapMa)
+        {
+            if (PhieuNhapMa == "tất cả") return getList_HangHoa_Ma();
+            DataTable table = da.Query("select hanghoa.ma from hanghoa inner join ChiTietPhieuNhap on HangHoa.ma = ChiTietPhieuNhap.hanghoama " 
+                + " where ChiTietPhieuNhap.phieunhapma = '" + PhieuNhapMa + "'");
+            int n = table.Rows.Count;
+            String[] list = new String[n];
+            int i = 0;
+            for (i = 0; i < n; i++)
+            {
+                list[i] = table.Rows[i]["ma"].ToString().Trim();
             }
             return list;
         }
