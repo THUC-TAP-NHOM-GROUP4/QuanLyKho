@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,59 @@ namespace QuanLyKho.Controller
     class Controllers
     {
         DataAccess da = new DataAccess();
+		 public bool addPhieuXuat(PhieuXuat px,ChiTietPhieuXuat ctpx)
+        {
+            SqlParameter[] para =
+            {
+               
+               new SqlParameter("khoma",px.KhoMa),
+               new SqlParameter("manguoinhan",px.NguoiNhanMa),
+               new SqlParameter("noidung",px.NoiDung),
+               new SqlParameter("khachhangma",px.KhachHangMa),
+               new SqlParameter("nhanvienma",px.NhanVienMa),
+               new SqlParameter("hanghoama",ctpx.HangHoaMa),
+               new SqlParameter("soluong",ctpx.SoLuong)
+
+            };
+            da.Query("procedure_insertPhieuXuat", para);
+            return true;
+        }
+
+
+        public List<HienThiPhieuXuat> getHTPX()
+        {
+            List<HienThiPhieuXuat> lsHTPX = new List<Model.HienThiPhieuXuat>();
+            DataTable table = da.Query("select px.ma,px.khoma,px.khachhangma,px.manguoinhan,px.nhanvienma,px.noidung,ctpx.hanghoama,ctpx.soluong,ctpx.thanhtien from PhieuXuat px inner join ChiTietPhieuXuat ctpx on px.ma = ctpx.phieuxuatma");
+            int n = table.Rows.Count;
+            int i;
+            if (n == 0) return null;
+
+            for (i = 0; i < n; i++)
+            {
+              
+                lsHTPX.Add(getPX(table.Rows[i]));
+            }
+            return lsHTPX;
+        }
+        public HienThiPhieuXuat getPX(DataRow row)
+        {
+            HienThiPhieuXuat htpx = new HienThiPhieuXuat();
+            htpx.maphieuxuat = row["ma"].ToString().Trim();
+            htpx.makho = row["khoma"].ToString().Trim();
+
+            htpx.makhachhang = row["khachhangma"].ToString().Trim();
+            htpx.manguoinhan = row["manguoinhan"].ToString().Trim();
+            htpx.manguoixuat = row["nhanvienma"].ToString().Trim();
+            htpx.noidungxuat = row["noidung"].ToString().Trim();
+            htpx.mahanghoa = row["hanghoama"].ToString().Trim();
+            // htpx.tenhanghoa = row["tenhanghoa"].ToString().Trim();
+            htpx.soluong = int.Parse(row["soluong"].ToString().Trim());
+            float thanhtien = 0;
+            float.TryParse(row["thanhtien"].ToString().Trim(), out thanhtien);
+            htpx.thanhtien = thanhtien;
+
+            return htpx;
+        }
         public HangHoaNhap[] getList_HangHoa()
         {
             DataTable table = da.Query("select distinct hh.ma, hh.ten, pn.ma as [phieunhapma], ct.ma as [chitietphieunhapma], pn.ngay, ct.soluong, "

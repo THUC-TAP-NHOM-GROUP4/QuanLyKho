@@ -82,7 +82,7 @@ namespace QuanLyKho
 
         }
 
-        private void bbiPhieuXuat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+         private void bbiPhieuXuat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             XtraTabPage tabXuatHang = new XtraTabPage();
             tabXuatHang.Text = "Phiếu xuất";
@@ -90,12 +90,13 @@ namespace QuanLyKho
                 xtraTabControl1.TabPages.Add(tabXuatHang);
             else
                 tabXuatHang.PageVisible = true;
-            UC_NhapHang XuatHang = new UC_NhapHang();
+            UXuatHang XuatHang = new View.UXuatHang();
             XuatHang.Parent = xtraTabControl1.TabPages[ViTriTabPage(tabXuatHang.Text)];
             XuatHang.Dock = DockStyle.Fill;
             XuatHang.Show();
             xtraTabControl1.SelectedTabPage = xtraTabControl1.TabPages[ViTriTabPage(tabXuatHang.Text)];
         }
+
 
         private void xtraTabControl1_CloseButtonClick(object sender, EventArgs e)
         {
