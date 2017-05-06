@@ -8,9 +8,7 @@ namespace QuanLyKho.Model
 {
     public class PhieuXuat
     {
-        public String Ma { get; set; }
-        public DateTime Ngay { get; set; }
-        public String KhoMa { get; set; }
+       public String KhoMa { get; set; }
         public String NguoiNhanMa { get; set; }
         public String NoiDung { get; set; }
         public String KhachHangMa { get; set; }
