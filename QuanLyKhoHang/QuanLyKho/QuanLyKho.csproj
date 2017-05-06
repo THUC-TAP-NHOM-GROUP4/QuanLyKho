@@ -59,8 +59,10 @@
   <ItemGroup>
     <Compile Include="Controller\Controllers.cs" />
     <Compile Include="Controller\DataAccess.cs" />
+    <Compile Include="Model\ChiTietPhieuXuat.cs" />
     <Compile Include="Model\HangHoa.cs" />
     <Compile Include="Model\HangHoaNhap.cs" />
+    <Compile Include="Model\HienThiPhieuXuat.cs" />
     <Compile Include="Model\NhanVien.cs" />
     <Compile Include="Model\PhieuNhap.cs" />
     <Compile Include="Model\PhieuXuat.cs" />
@@ -96,11 +98,11 @@
     <Compile Include="View\UC_TrangChu_DanhSach.Designer.cs">
       <DependentUpon>UC_TrangChu_DanhSach.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\UC_XuatHang.cs">
+    <Compile Include="View\UXuatHang.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\UC_XuatHang.Designer.cs">
-      <DependentUpon>UC_XuatHang.cs</DependentUpon>
+    <Compile Include="View\UXuatHang.Designer.cs">
+      <DependentUpon>UXuatHang.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="View\QUANLYKHO.resx">
       <DependentUpon>QUANLYKHO.cs</DependentUpon>
@@ -127,8 +129,8 @@
     <EmbeddedResource Include="View\UC_TrangChu_DanhSach.resx">
       <DependentUpon>UC_TrangChu_DanhSach.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\UC_XuatHang.resx">
-      <DependentUpon>UC_XuatHang.cs</DependentUpon>
+    <EmbeddedResource Include="View\UXuatHang.resx">
+      <DependentUpon>UXuatHang.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
