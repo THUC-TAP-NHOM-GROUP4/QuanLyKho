@@ -43,6 +43,7 @@ create table HangHoa
 ma varchar(20) primary key,
 ten nvarchar(50),
 nhomma varchar(20),
+dongia float,
 FOREIGN KEY(nhomma) REFERENCES Nhom(ma)
 )
 
@@ -60,6 +61,58 @@ FOREIGN KEY(khachhangma) REFERENCES KhachHang(ma),
 FOREIGN KEY(nhanvienma) REFERENCES NhanVien(ma)
 
 )
+create function [dbo].[auto_maPhieuXuat]() returns varchar(6)
+as
+begin
+declare @ma varchar(6)
+if(select count(ma) from PhieuXuat)=0
+set @ma='0'
+else 
+select @ma=max(right(ma,4)) from PhieuXuat
+set @ma=case
+when 
+@ma>=0 and @ma<9 then 'PX000'+CONVERT(char,convert(int,@ma)+1)
+when @ma>=9 and @ma<99 then 'PX00'+CONVERT(char,convert(int,@ma)+1)
+when @ma>=99 and @ma<999 then 'PX0'+CONVERT(char,convert(int,@ma)+1)
+end
+return 
+@ma
+end
+
+create function [dbo].[auto_maCTPhieuXuat]() returns varchar(8)
+as
+begin
+declare @ma varchar(8)
+if(select count(ma) from ChiTietPhieuXuat)=0
+set @ma='0'
+else 
+select @ma=max(right(ma,6)) from ChiTietPhieuXuat
+set @ma=case
+when 
+@ma>=0 and @ma<9 then 'CTPX000'+CONVERT(char,convert(int,@ma)+1)
+when @ma>=9 and @ma<99 then 'CTPX00'+CONVERT(char,convert(int,@ma)+1)
+when @ma>=99 and @ma<999 then 'CTPX0'+CONVERT(char,convert(int,@ma)+1)
+end
+return 
+@ma
+end
+create procedure procedure_insertPhieuXuat(@khoma varchar(20),@manguoinhan varchar(20),@noidung text,
+@khachhangma varchar(20),@nhanvienma varchar(20),@hanghoama varchar(20),@soluong int)
+as
+begin
+declare @mapx varchar(20),@dongia float,@thanhtien float
+set		@mapx=db.auto_maPhieuXuat()
+set		@dongia=(select dongia from HangHoa where ma=@hanghoama)
+set		@thanhtien=@dongia*@soluong
+begin
+insert into PhieuXuat(ma,ngay,khoma,manguoinhan,noidung,khachhangma,nhanvienma)
+values(@mapx,GETDATE(),@khoma,@manguoinhan,@noidung,@khachhangma,@nhanvienma)
+insert into ChiTietPhieuXuat(ma,phieuxuatma,hanghoama,khoma,soluong,thanhtien)
+values(db.auto_CTPhieuXuat(),@mapx,@hanghoama,@soluong,@thanhtien)
+end
+end
+
+
 
 create table ChiTietPhieuXuat
 (
@@ -68,8 +121,7 @@ phieuxuatma varchar(20),
 hanghoama varchar(20),
 khoma varchar(20),
 soluong int,
-dongia float,
-thanhtien money,
+thanhtien float,
 FOREIGN KEY(phieuxuatma) REFERENCES PhieuXuat(ma),
 FOREIGN KEY(hanghoama) REFERENCES HangHoa(ma),
 FOREIGN KEY(khoma) REFERENCES Kho(ma)
