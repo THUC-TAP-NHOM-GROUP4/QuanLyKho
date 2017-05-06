@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QuanLyKho.Model
 {
-    class HangHoa
+   public  class HangHoa
     {
         public String Ma { get; set; }
         public String Ten { get; set; }

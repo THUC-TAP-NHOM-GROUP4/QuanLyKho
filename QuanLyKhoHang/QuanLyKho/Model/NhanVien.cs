@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QuanLyKho.Model
 {
-    class NhanVien
+    public class NhanVien
     {
         public String Ma { get; set; }
         public String Ten { get; set; }

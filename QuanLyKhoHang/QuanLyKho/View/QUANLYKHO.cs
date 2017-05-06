@@ -99,9 +99,6 @@ namespace QuanLyKho
 
         private void xtraTabControl1_CloseButtonClick(object sender, EventArgs e)
         {
-
-
-        
             int h = 0;
 
             ClosePageButtonEventArgs arg = e as ClosePageButtonEventArgs;
@@ -164,6 +161,21 @@ namespace QuanLyKho
         private void navBarItem_ThongKe_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
             Ribbon.SelectedPage = rPThongKe;
+        }
+
+        private void bbiTrangChu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            XtraTabPage tabTrangChu_danhsach = new XtraTabPage();
+            tabTrangChu_danhsach.Text = "Danh sách hàng hóa trong kho";
+            if (KiemTraTabPage(tabTrangChu_danhsach.Text) == false)
+                xtraTabControl1.TabPages.Add(tabTrangChu_danhsach);
+            else
+                tabTrangChu_danhsach.PageVisible = true;
+            UC_TrangChu_DanhSach ds = new UC_TrangChu_DanhSach();
+            ds.Parent = xtraTabControl1.TabPages[ViTriTabPage(tabTrangChu_danhsach.Text)];
+            ds.Dock = DockStyle.Fill;
+            ds.Show();
+            xtraTabControl1.SelectedTabPage = xtraTabControl1.TabPages[ViTriTabPage(tabTrangChu_danhsach.Text)];
         }
     }
 }

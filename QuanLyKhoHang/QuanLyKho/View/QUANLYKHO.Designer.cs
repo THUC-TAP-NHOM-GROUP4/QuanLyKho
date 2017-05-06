@@ -59,13 +59,14 @@
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navBarGroup2 = new DevExpress.XtraNavBar.NavBarGroup();
-            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.navBarItem_TrangChu = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem_NhapHang = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem_XuatHang = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem_ThongKe = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarGroup2 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
+            this.bbiTrangChu = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -93,9 +94,10 @@
             this.bbiPhieuXuat,
             this.barButtonItem_ThongKe_DoanhThu,
             this.barButtonItem_ThongKe_NhapXuat,
-            this.barButtonItem_ThongKe_DoanhThu_Chung});
+            this.barButtonItem_ThongKe_DoanhThu_Chung,
+            this.bbiTrangChu});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 16;
+            this.ribbonControl1.MaxItemId = 17;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rpTrangChu,
@@ -232,6 +234,7 @@
             // 
             // rpgHeThong
             // 
+            this.rpgHeThong.ItemLinks.Add(this.bbiTrangChu);
             this.rpgHeThong.ItemLinks.Add(this.bbiDangNhap);
             this.rpgHeThong.ItemLinks.Add(this.bbiDangXuat);
             this.rpgHeThong.Name = "rpgHeThong";
@@ -327,27 +330,6 @@
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem_ThongKe)});
             this.navBarGroup1.Name = "navBarGroup1";
             // 
-            // navBarGroup2
-            // 
-            this.navBarGroup2.Caption = "Nội  quy ";
-            this.navBarGroup2.Name = "navBarGroup2";
-            // 
-            // panelControl2
-            // 
-            this.panelControl2.Controls.Add(this.xtraTabControl1);
-            this.panelControl2.Location = new System.Drawing.Point(206, 145);
-            this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(942, 540);
-            this.panelControl2.TabIndex = 2;
-            // 
-            // xtraTabControl1
-            // 
-            this.xtraTabControl1.Location = new System.Drawing.Point(6, 6);
-            this.xtraTabControl1.Name = "xtraTabControl1";
-            this.xtraTabControl1.Size = new System.Drawing.Size(931, 534);
-            this.xtraTabControl1.TabIndex = 0;
-            this.xtraTabControl1.CloseButtonClick += new System.EventHandler(this.xtraTabControl1_CloseButtonClick);
-            // 
             // navBarItem_TrangChu
             // 
             this.navBarItem_TrangChu.Caption = "Trang chủ";
@@ -373,6 +355,35 @@
             this.navBarItem_ThongKe.ImageUri.Uri = "Chart";
             this.navBarItem_ThongKe.Name = "navBarItem_ThongKe";
             this.navBarItem_ThongKe.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem_ThongKe_LinkClicked);
+            // 
+            // navBarGroup2
+            // 
+            this.navBarGroup2.Caption = "Nội  quy ";
+            this.navBarGroup2.Name = "navBarGroup2";
+            // 
+            // panelControl2
+            // 
+            this.panelControl2.Controls.Add(this.xtraTabControl1);
+            this.panelControl2.Location = new System.Drawing.Point(206, 145);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(942, 540);
+            this.panelControl2.TabIndex = 2;
+            // 
+            // xtraTabControl1
+            // 
+            this.xtraTabControl1.Location = new System.Drawing.Point(6, 6);
+            this.xtraTabControl1.Name = "xtraTabControl1";
+            this.xtraTabControl1.Size = new System.Drawing.Size(931, 534);
+            this.xtraTabControl1.TabIndex = 0;
+            this.xtraTabControl1.CloseButtonClick += new System.EventHandler(this.xtraTabControl1_CloseButtonClick);
+            // 
+            // bbiTrangChu
+            // 
+            this.bbiTrangChu.Caption = "Trang chủ";
+            this.bbiTrangChu.Id = 16;
+            this.bbiTrangChu.ImageUri.Uri = "Home";
+            this.bbiTrangChu.Name = "bbiTrangChu";
+            this.bbiTrangChu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiTrangChu_ItemClick);
             // 
             // QUANLYKHO
             // 
@@ -439,6 +450,7 @@
         private DevExpress.XtraNavBar.NavBarItem navBarItem_NhapHang;
         private DevExpress.XtraNavBar.NavBarItem navBarItem_XuatHang;
         private DevExpress.XtraNavBar.NavBarItem navBarItem_ThongKe;
+        private DevExpress.XtraBars.BarButtonItem bbiTrangChu;
     }
 }
 

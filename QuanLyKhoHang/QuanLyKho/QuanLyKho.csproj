@@ -60,6 +60,7 @@
     <Compile Include="Controller\Controllers.cs" />
     <Compile Include="Controller\DataAccess.cs" />
     <Compile Include="Model\HangHoa.cs" />
+    <Compile Include="Model\HangHoaNhap.cs" />
     <Compile Include="Model\NhanVien.cs" />
     <Compile Include="Model\PhieuNhap.cs" />
     <Compile Include="Model\PhieuXuat.cs" />
@@ -89,6 +90,12 @@
     <Compile Include="View\UC_ThongKe_Chung.Designer.cs">
       <DependentUpon>UC_ThongKe_Chung.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\UC_TrangChu_DanhSach.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC_TrangChu_DanhSach.Designer.cs">
+      <DependentUpon>UC_TrangChu_DanhSach.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\UC_XuatHang.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -116,6 +123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\UC_ThongKe_Chung.resx">
       <DependentUpon>UC_ThongKe_Chung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC_TrangChu_DanhSach.resx">
+      <DependentUpon>UC_TrangChu_DanhSach.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UC_XuatHang.resx">
       <DependentUpon>UC_XuatHang.cs</DependentUpon>

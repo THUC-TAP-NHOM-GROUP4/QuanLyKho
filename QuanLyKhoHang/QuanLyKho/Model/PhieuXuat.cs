@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QuanLyKho.Model
 {
-    class PhieuXuat
+    public class PhieuXuat
     {
         public String Ma { get; set; }
         public DateTime Ngay { get; set; }
