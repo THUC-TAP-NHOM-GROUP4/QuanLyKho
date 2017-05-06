@@ -45,6 +45,7 @@
             this.bbiPhieuXuat = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem_ThongKe_DoanhThu = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem_ThongKe_NhapXuat = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_ThongKe_DoanhThu_Chung = new DevExpress.XtraBars.BarButtonItem();
             this.rpTrangChu = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgHeThong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -54,14 +55,17 @@
             this.rPGXuatHang = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rPThongKe = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroup2 = new DevExpress.XtraNavBar.NavBarGroup();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
-            this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barButtonItem_ThongKe_DoanhThu_Chung = new DevExpress.XtraBars.BarButtonItem();
+            this.navBarItem_TrangChu = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem_NhapHang = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem_XuatHang = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem_ThongKe = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -210,6 +214,14 @@
             this.barButtonItem_ThongKe_NhapXuat.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.barButtonItem_ThongKe_NhapXuat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_ThongKe_NhapXuat_ItemClick);
             // 
+            // barButtonItem_ThongKe_DoanhThu_Chung
+            // 
+            this.barButtonItem_ThongKe_DoanhThu_Chung.Caption = "Thống kê chung";
+            this.barButtonItem_ThongKe_DoanhThu_Chung.Id = 15;
+            this.barButtonItem_ThongKe_DoanhThu_Chung.ImageUri.Uri = "Summary";
+            this.barButtonItem_ThongKe_DoanhThu_Chung.Name = "barButtonItem_ThongKe_DoanhThu_Chung";
+            this.barButtonItem_ThongKe_DoanhThu_Chung.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_ThongKe_DoanhThu_Chung_ItemClick);
+            // 
             // rpTrangChu
             // 
             this.rpTrangChu.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -272,6 +284,12 @@
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.Text = "Thống kê";
             // 
+            // ribbonPageGroup4
+            // 
+            this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem_ThongKe_DoanhThu_Chung);
+            this.ribbonPageGroup4.Name = "ribbonPageGroup4";
+            this.ribbonPageGroup4.Text = "ribbonPageGroup4";
+            // 
             // panelControl1
             // 
             this.panelControl1.Controls.Add(this.navBarControl1);
@@ -286,6 +304,11 @@
             this.navBarControl1.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
             this.navBarGroup1,
             this.navBarGroup2});
+            this.navBarControl1.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
+            this.navBarItem_TrangChu,
+            this.navBarItem_NhapHang,
+            this.navBarItem_XuatHang,
+            this.navBarItem_ThongKe});
             this.navBarControl1.Location = new System.Drawing.Point(6, 5);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 189;
@@ -295,8 +318,13 @@
             // 
             // navBarGroup1
             // 
-            this.navBarGroup1.Caption = "Hướng dẫn sử dụng";
+            this.navBarGroup1.Caption = "Trang chủ";
             this.navBarGroup1.Expanded = true;
+            this.navBarGroup1.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem_TrangChu),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem_NhapHang),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem_XuatHang),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem_ThongKe)});
             this.navBarGroup1.Name = "navBarGroup1";
             // 
             // navBarGroup2
@@ -320,19 +348,31 @@
             this.xtraTabControl1.TabIndex = 0;
             this.xtraTabControl1.CloseButtonClick += new System.EventHandler(this.xtraTabControl1_CloseButtonClick);
             // 
-            // ribbonPageGroup4
+            // navBarItem_TrangChu
             // 
-            this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem_ThongKe_DoanhThu_Chung);
-            this.ribbonPageGroup4.Name = "ribbonPageGroup4";
-            this.ribbonPageGroup4.Text = "ribbonPageGroup4";
+            this.navBarItem_TrangChu.Caption = "Trang chủ";
+            this.navBarItem_TrangChu.ImageUri.Uri = "Home";
+            this.navBarItem_TrangChu.Name = "navBarItem_TrangChu";
+            this.navBarItem_TrangChu.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem_TrangChu_LinkClicked);
             // 
-            // barButtonItem_ThongKe_DoanhThu_Chung
+            // navBarItem_NhapHang
             // 
-            this.barButtonItem_ThongKe_DoanhThu_Chung.Caption = "Thống kê chung";
-            this.barButtonItem_ThongKe_DoanhThu_Chung.Id = 15;
-            this.barButtonItem_ThongKe_DoanhThu_Chung.ImageUri.Uri = "Summary";
-            this.barButtonItem_ThongKe_DoanhThu_Chung.Name = "barButtonItem_ThongKe_DoanhThu_Chung";
-            this.barButtonItem_ThongKe_DoanhThu_Chung.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_ThongKe_DoanhThu_Chung_ItemClick);
+            this.navBarItem_NhapHang.Caption = "Nhập hàng";
+            this.navBarItem_NhapHang.Name = "navBarItem_NhapHang";
+            this.navBarItem_NhapHang.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem_NhapHang_LinkClicked);
+            // 
+            // navBarItem_XuatHang
+            // 
+            this.navBarItem_XuatHang.Caption = "Xuất Hàng";
+            this.navBarItem_XuatHang.Name = "navBarItem_XuatHang";
+            this.navBarItem_XuatHang.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem_XuatHang_LinkClicked);
+            // 
+            // navBarItem_ThongKe
+            // 
+            this.navBarItem_ThongKe.Caption = "Thống kê";
+            this.navBarItem_ThongKe.ImageUri.Uri = "Chart";
+            this.navBarItem_ThongKe.Name = "navBarItem_ThongKe";
+            this.navBarItem_ThongKe.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem_ThongKe_LinkClicked);
             // 
             // QUANLYKHO
             // 
@@ -395,6 +435,10 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraBars.BarButtonItem barButtonItem_ThongKe_DoanhThu_Chung;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem_TrangChu;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem_NhapHang;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem_XuatHang;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem_ThongKe;
     }
 }
 

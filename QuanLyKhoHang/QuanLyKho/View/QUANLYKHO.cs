@@ -146,6 +146,24 @@ namespace QuanLyKho
             //MessageBox.Show("barButtonItem_ThongKe_NhapXuat_ItemClick");
         }
 
-      
+        private void navBarItem_TrangChu_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            Ribbon.SelectedPage = rpTrangChu;
+        }
+
+        private void navBarItem_NhapHang_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            Ribbon.SelectedPage = rPNhapHang;
+        }
+
+        private void navBarItem_XuatHang_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            Ribbon.SelectedPage = rPXuatHang;
+        }
+
+        private void navBarItem_ThongKe_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            Ribbon.SelectedPage = rPThongKe;
+        }
     }
 }

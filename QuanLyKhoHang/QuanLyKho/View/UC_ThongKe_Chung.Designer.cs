@@ -55,7 +55,7 @@
             this.chartDoanhThu_Nam.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chartDoanhThu_Nam.Legends.Add(legend1);
-            this.chartDoanhThu_Nam.Location = new System.Drawing.Point(23, 41);
+            this.chartDoanhThu_Nam.Location = new System.Drawing.Point(101, 43);
             this.chartDoanhThu_Nam.Name = "chartDoanhThu_Nam";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
@@ -66,7 +66,7 @@
             series2.Name = "Xuất";
             this.chartDoanhThu_Nam.Series.Add(series1);
             this.chartDoanhThu_Nam.Series.Add(series2);
-            this.chartDoanhThu_Nam.Size = new System.Drawing.Size(882, 445);
+            this.chartDoanhThu_Nam.Size = new System.Drawing.Size(734, 445);
             this.chartDoanhThu_Nam.TabIndex = 0;
             this.chartDoanhThu_Nam.Text = "Thống kê doanh thu theo năm";
             title1.Name = "Title1";
