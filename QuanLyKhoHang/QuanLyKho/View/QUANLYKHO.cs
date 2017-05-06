@@ -126,10 +126,26 @@ namespace QuanLyKho
             xtraTabControl1.SelectedTabPage = xtraTabControl1.TabPages[ViTriTabPage(tabTK_DoanhThu.Text)];
 
         }
-
-        private void barButtonItem_ThongKe_NhapXuat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void barButtonItem_ThongKe_DoanhThu_Chung_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            XtraTabPage tabTK_DoanhThu_Chung = new XtraTabPage();
+            tabTK_DoanhThu_Chung.Text = "Doanh thu chung qua các năm";
+            if (KiemTraTabPage(tabTK_DoanhThu_Chung.Text) == false)
+                xtraTabControl1.TabPages.Add(tabTK_DoanhThu_Chung);
+            else
+                tabTK_DoanhThu_Chung.PageVisible = true;
+            UC_ThongKe_Chung ds = new UC_ThongKe_Chung();
+            ds.Parent = xtraTabControl1.TabPages[ViTriTabPage(tabTK_DoanhThu_Chung.Text)];
+            ds.Dock = DockStyle.Fill;
+            ds.Show();
+            xtraTabControl1.SelectedTabPage = xtraTabControl1.TabPages[ViTriTabPage(tabTK_DoanhThu_Chung.Text)];
 
         }
+        private void barButtonItem_ThongKe_NhapXuat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            //MessageBox.Show("barButtonItem_ThongKe_NhapXuat_ItemClick");
+        }
+
+      
     }
 }

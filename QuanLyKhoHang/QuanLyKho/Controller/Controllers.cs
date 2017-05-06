@@ -31,8 +31,8 @@ namespace QuanLyKho.Controller
                 case 11: thang_str = "Nov"; break;
                 case 12: thang_str = "Dec"; break;
             }
-            DataTable table =  da.Query("select  sum(chitietphieuxuat.thanhtien) as [Tổng tiền] from PhieuXuat " 
-                + " inner join chitietphieuxuat on PhieuXuat.ma = ChiTietPhieuXuat.phieuxuatma " 
+            DataTable table =  da.Query("select  sum(chitietphieunhap.thanhtien) as [Tổng tiền] from PhieuNhap " 
+                + " inner join chitietphieunhap on PhieuNhap.ma = ChiTietPhieuNhap.phieunhapma " 
                 + " where CONVERT(CHAR(4), ngay, 100) = '"+ thang_str+ "' and CONVERT(CHAR(4), ngay, 120) = " + nam );
            if (Double.TryParse(table.Rows[0]["Tổng tiền"].ToString().Trim(), out DoanhThu)){
                 return DoanhThu;
@@ -68,6 +68,33 @@ namespace QuanLyKho.Controller
             }
             return DoanhThu;
         }
+
+        public double getDoanhThu_Xuat(int nam)
+        {
+            Double DoanhThu = 0;
+            
+            DataTable table = da.Query("select sum(ChiTietPhieuXuat.thanhtien) as[Tổng tiền] from PhieuXuat " 
+                            + " inner join ChiTietPhieuXuat on PhieuXuat.ma = ChiTietPhieuXuat.phieuxuatma " 
+                            + "  where CONVERT(CHAR(4), ngay, 120) =  " + nam);
+            if (Double.TryParse(table.Rows[0]["Tổng tiền"].ToString().Trim(), out DoanhThu))
+            {
+                return DoanhThu;
+            }
+            return DoanhThu;
+        }
+        public double getDoanhThu_Nhap(int nam)
+        {
+            Double DoanhThu = 0;
+
+            DataTable table = da.Query("select sum(ChiTietPhieuNhap.thanhtien) as[Tổng tiền] from PhieuNhap "
+                            + " inner join ChiTietPhieuNhap on PhieuNhap.ma = ChiTietPhieuNhap.phieunhapma "
+                            + "  where CONVERT(CHAR(4), ngay, 120) =  " + nam);
+            if (Double.TryParse(table.Rows[0]["Tổng tiền"].ToString().Trim(), out DoanhThu))
+            {
+                return DoanhThu;
+            }
+            return DoanhThu;
+        }
         public int[] getNam()
         {
             DataTable table = da.Query("select distinct CONVERT(CHAR(4), ngay, 120) as [nam]  from PhieuNhap ");
@@ -89,6 +116,7 @@ namespace QuanLyKho.Controller
                 j++;
             }
             nam = nam.Distinct().ToArray();
+            Array.Sort(nam);
             return nam;
         }
     }
