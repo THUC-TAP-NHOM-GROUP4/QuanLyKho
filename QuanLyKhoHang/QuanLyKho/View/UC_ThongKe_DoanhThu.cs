@@ -22,10 +22,10 @@ namespace QuanLyKho.View
 
         private void UC_ThongKe_DoanhThu_Load(object sender, EventArgs e)
         {
-            chartDoanhThu.Series["Nhập"].Points.Clear();
-            chartDoanhThu.Series["Xuất"].Points.Clear();
             int[] nam = control.getNam();
             cbbThongKe_nam.DataSource = control.getNam();
+            chartDoanhThu.Series["Nhập"].Points.Clear();
+            chartDoanhThu.Series["Xuất"].Points.Clear();
             for (int i = 1; i <= 12; i++)
             {
                 chartDoanhThu.Series["Nhập"].Points.AddXY("Tháng " + (i + 1), control.getDoanhThu_Nhap(i, nam[0]));

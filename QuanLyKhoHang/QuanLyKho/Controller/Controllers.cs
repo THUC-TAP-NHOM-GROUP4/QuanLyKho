@@ -59,8 +59,8 @@ namespace QuanLyKho.Controller
                 case 11: thang_str = "Nov"; break;
                 case 12: thang_str = "Dec"; break;
             }
-            DataTable table = da.Query("select  sum(chitietphieunhap.thanhtien) as [Tổng tiền] from PhieuNhap "
-                + " inner join ChiTietPhieuNhap  on PhieuNhap.ma = ChiTietPhieuNhap.phieunhapma " 
+            DataTable table = da.Query("select  sum(chitietphieuxuat.thanhtien) as [Tổng tiền] from PhieuXuat "
+                + " inner join ChiTietPhieuXuat  on PhieuXuat.ma = ChiTietPhieuXuat.phieuXuatMa "
                 + " where CONVERT(CHAR(4), ngay, 100) = '"+ thang_str + "' and CONVERT(CHAR(4), ngay, 120) = " + nam);
             if (Double.TryParse(table.Rows[0]["Tổng tiền"].ToString().Trim(), out DoanhThu))
             {

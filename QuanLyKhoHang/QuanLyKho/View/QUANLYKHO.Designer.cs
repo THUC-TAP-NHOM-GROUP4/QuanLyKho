@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QUANLYKHO));
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup2 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-            DevExpress.XtraBars.Ribbon.GalleryItem galleryItem2 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItem galleryItem1 = new DevExpress.XtraBars.Ribbon.GalleryItem();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.bbiDangNhap = new DevExpress.XtraBars.BarButtonItem();
@@ -43,6 +43,8 @@
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.bbiPhieuXuat = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_ThongKe_DoanhThu = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_ThongKe_NhapXuat = new DevExpress.XtraBars.BarButtonItem();
             this.rpTrangChu = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgHeThong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -51,16 +53,13 @@
             this.rPXuatHang = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rPGXuatHang = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rPThongKe = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroup2 = new DevExpress.XtraNavBar.NavBarGroup();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
-            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barButtonItem_ThongKe_DoanhThu = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barButtonItem_ThongKe_NhapXuat = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -154,12 +153,12 @@
             // 
             // 
             this.ribbonGalleryBarItem1.Gallery.AllowHoverImages = true;
-            galleryItemGroup2.Caption = "Group2";
-            galleryItem2.Caption = "Item5";
-            galleryItemGroup2.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
-            galleryItem2});
+            galleryItemGroup1.Caption = "Group2";
+            galleryItem1.Caption = "Item5";
+            galleryItemGroup1.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
+            galleryItem1});
             this.ribbonGalleryBarItem1.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            galleryItemGroup2});
+            galleryItemGroup1});
             this.ribbonGalleryBarItem1.Id = 7;
             this.ribbonGalleryBarItem1.Name = "ribbonGalleryBarItem1";
             // 
@@ -190,6 +189,23 @@
             this.bbiPhieuXuat.LargeWidth = 80;
             this.bbiPhieuXuat.Name = "bbiPhieuXuat";
             this.bbiPhieuXuat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPhieuXuat_ItemClick);
+            // 
+            // barButtonItem_ThongKe_DoanhThu
+            // 
+            this.barButtonItem_ThongKe_DoanhThu.Caption = "Nhập xuất";
+            this.barButtonItem_ThongKe_DoanhThu.Id = 13;
+            this.barButtonItem_ThongKe_DoanhThu.ImageUri.Uri = "Chart";
+            this.barButtonItem_ThongKe_DoanhThu.Name = "barButtonItem_ThongKe_DoanhThu";
+            this.barButtonItem_ThongKe_DoanhThu.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.barButtonItem_ThongKe_DoanhThu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_ThongKe_DoanhThu_ItemClick);
+            // 
+            // barButtonItem_ThongKe_NhapXuat
+            // 
+            this.barButtonItem_ThongKe_NhapXuat.Id = 14;
+            this.barButtonItem_ThongKe_NhapXuat.ImageUri.Uri = "Pie";
+            this.barButtonItem_ThongKe_NhapXuat.Name = "barButtonItem_ThongKe_NhapXuat";
+            this.barButtonItem_ThongKe_NhapXuat.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.barButtonItem_ThongKe_NhapXuat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_ThongKe_NhapXuat_ItemClick);
             // 
             // rpTrangChu
             // 
@@ -241,10 +257,16 @@
             // rPThongKe
             // 
             this.rPThongKe.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup3,
-            this.ribbonPageGroup4});
+            this.ribbonPageGroup3});
             this.rPThongKe.Name = "rPThongKe";
             this.rPThongKe.Text = "Thống Kê";
+            // 
+            // ribbonPageGroup3
+            // 
+            this.ribbonPageGroup3.Glyph = ((System.Drawing.Image)(resources.GetObject("ribbonPageGroup3.Glyph")));
+            this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem_ThongKe_DoanhThu);
+            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
+            this.ribbonPageGroup3.Text = "Thống kê";
             // 
             // panelControl1
             // 
@@ -293,37 +315,6 @@
             this.xtraTabControl1.Size = new System.Drawing.Size(931, 534);
             this.xtraTabControl1.TabIndex = 0;
             this.xtraTabControl1.CloseButtonClick += new System.EventHandler(this.xtraTabControl1_CloseButtonClick);
-            // 
-            // ribbonPageGroup3
-            // 
-            this.ribbonPageGroup3.Glyph = ((System.Drawing.Image)(resources.GetObject("ribbonPageGroup3.Glyph")));
-            this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem_ThongKe_DoanhThu);
-            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
-            this.ribbonPageGroup3.Text = "Thống kê";
-            // 
-            // barButtonItem_ThongKe_DoanhThu
-            // 
-            this.barButtonItem_ThongKe_DoanhThu.Caption = "Doanh thu";
-            this.barButtonItem_ThongKe_DoanhThu.Id = 13;
-            this.barButtonItem_ThongKe_DoanhThu.ImageUri.Uri = "Chart";
-            this.barButtonItem_ThongKe_DoanhThu.Name = "barButtonItem_ThongKe_DoanhThu";
-            this.barButtonItem_ThongKe_DoanhThu.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.barButtonItem_ThongKe_DoanhThu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_ThongKe_DoanhThu_ItemClick);
-            // 
-            // ribbonPageGroup4
-            // 
-            this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem_ThongKe_NhapXuat);
-            this.ribbonPageGroup4.Name = "ribbonPageGroup4";
-            this.ribbonPageGroup4.Text = "Thống kê";
-            // 
-            // barButtonItem_ThongKe_NhapXuat
-            // 
-            this.barButtonItem_ThongKe_NhapXuat.Caption = "Nhập xuất";
-            this.barButtonItem_ThongKe_NhapXuat.Id = 14;
-            this.barButtonItem_ThongKe_NhapXuat.ImageUri.Uri = "Pie";
-            this.barButtonItem_ThongKe_NhapXuat.Name = "barButtonItem_ThongKe_NhapXuat";
-            this.barButtonItem_ThongKe_NhapXuat.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.barButtonItem_ThongKe_NhapXuat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_ThongKe_NhapXuat_ItemClick);
             // 
             // QUANLYKHO
             // 
@@ -384,7 +375,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem_ThongKe_DoanhThu;
         private DevExpress.XtraBars.BarButtonItem barButtonItem_ThongKe_NhapXuat;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
     }
 }
 
