@@ -37,6 +37,26 @@ namespace QuanLyKho.View
             dgvTrangChu_DanhSach.Columns["ma"].Width = 50;
             dgvTrangChu_DanhSach.Columns["soluong"].Width = 80;
             dgvTrangChu_DanhSach.Columns["chitietphieunhapma"].Width = 150;
+            dgvTrangChu_DanhSach.Columns["tennhanvien"].Width = 120;
+
+            UC_TrangChu_DanhSach_Load_TimKiem();
+        }
+        private void UC_TrangChu_DanhSach_Load_TimKiem()
+        {
+            cbbTrangChu_PhieuNhap.DataSource = control.getList_PhieuNhap();
+            cbbTrangChu_HangHoa.DataSource = control.getList_HangHoa_Ma();
+        }
+
+        private void cbbTrangChu_HangHoa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //cbbTrangChu_PhieuNhap.DataSource = control.getList_PhieuNhap(cbbTrangChu_HangHoa.Text);
+            dgvTrangChu_DanhSach.DataSource = control.getList_HangHoa(cbbTrangChu_HangHoa.Text, cbbTrangChu_PhieuNhap.Text);
+        }
+
+        private void cbbTrangChu_PhieuNhap_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           // cbbTrangChu_HangHoa.DataSource = control.getList_HangHoa_Ma(cbbTrangChu_PhieuNhap.Text);
+            dgvTrangChu_DanhSach.DataSource = control.getList_HangHoa(cbbTrangChu_HangHoa.Text, cbbTrangChu_PhieuNhap.Text);
         }
     }
 }
