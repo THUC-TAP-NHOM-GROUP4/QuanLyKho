@@ -44,6 +44,7 @@ ma varchar(20) primary key,
 ten nvarchar(50),
 nhomma varchar(20),
 dongia float,
+soluong int,
 FOREIGN KEY(nhomma) REFERENCES Nhom(ma)
 )
 

@@ -11,5 +11,7 @@ namespace QuanLyKho.Model
         public String Ma { get; set; }
         public String Ten { get; set; }
         public String NhomMa { get; set; }
+        public int Soluong { get; set; }
+        public float Dongia { get; set; }
     }
 }
