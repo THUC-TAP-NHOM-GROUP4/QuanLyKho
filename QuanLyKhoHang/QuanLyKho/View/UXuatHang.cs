@@ -31,7 +31,7 @@ namespace QuanLyKho.View
             dt.Columns.Add("thành tiền", typeof(string));
 
             PhieuXuat px = new PhieuXuat();
-            lbMaPhieuXuat.Text = "Mã Phiếu Xuất"+control.get_PXma(px);
+            lbMaPhieuXuat.Text = "Mã Phiếu Xuất: "+control.get_PXma(px);
             cbbPhieuXuatMaNhanVien.DataSource = control.getList_NhanVien();
             cbbPhieuXuatMaNhanVien.DisplayMember = "ma";
             cbbPhieuXuatMaNhanVien.ValueMember = "ma";

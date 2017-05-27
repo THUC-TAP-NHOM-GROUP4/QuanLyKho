@@ -216,9 +216,10 @@
             // 
             // txtSoLuongHangXuat
             // 
+            this.txtSoLuongHangXuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtSoLuongHangXuat.Location = new System.Drawing.Point(752, 102);
             this.txtSoLuongHangXuat.Name = "txtSoLuongHangXuat";
-            this.txtSoLuongHangXuat.Size = new System.Drawing.Size(175, 20);
+            this.txtSoLuongHangXuat.Size = new System.Drawing.Size(175, 22);
             this.txtSoLuongHangXuat.TabIndex = 74;
             // 
             // txtTenHang
@@ -336,6 +337,7 @@
             // 
             // cbbNoiDungXuat
             // 
+            this.cbbNoiDungXuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cbbNoiDungXuat.FormattingEnabled = true;
             this.cbbNoiDungXuat.Items.AddRange(new object[] {
             "Xuất hàng bán đại lý lớn",
@@ -343,7 +345,7 @@
             "Xuất hàng tổng hợp"});
             this.cbbNoiDungXuat.Location = new System.Drawing.Point(446, 73);
             this.cbbNoiDungXuat.Name = "cbbNoiDungXuat";
-            this.cbbNoiDungXuat.Size = new System.Drawing.Size(175, 21);
+            this.cbbNoiDungXuat.Size = new System.Drawing.Size(175, 24);
             this.cbbNoiDungXuat.TabIndex = 80;
             // 
             // lbMaPhieuXuat
@@ -358,10 +360,11 @@
             // 
             // cbbPhieuXuatMaKhachHang
             // 
+            this.cbbPhieuXuatMaKhachHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cbbPhieuXuatMaKhachHang.FormattingEnabled = true;
             this.cbbPhieuXuatMaKhachHang.Location = new System.Drawing.Point(446, 37);
             this.cbbPhieuXuatMaKhachHang.Name = "cbbPhieuXuatMaKhachHang";
-            this.cbbPhieuXuatMaKhachHang.Size = new System.Drawing.Size(175, 21);
+            this.cbbPhieuXuatMaKhachHang.Size = new System.Drawing.Size(175, 24);
             this.cbbPhieuXuatMaKhachHang.TabIndex = 82;
             this.cbbPhieuXuatMaKhachHang.SelectedIndexChanged += new System.EventHandler(this.cbbPhieuXuatMaKhachHang_SelectedIndexChanged);
             // 
@@ -395,17 +398,19 @@
             // 
             // txtPhieuXuatDonGia
             // 
+            this.txtPhieuXuatDonGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtPhieuXuatDonGia.Location = new System.Drawing.Point(144, 135);
             this.txtPhieuXuatDonGia.Name = "txtPhieuXuatDonGia";
-            this.txtPhieuXuatDonGia.Size = new System.Drawing.Size(139, 20);
+            this.txtPhieuXuatDonGia.Size = new System.Drawing.Size(139, 22);
             this.txtPhieuXuatDonGia.TabIndex = 86;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label11.Location = new System.Drawing.Point(289, 142);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(30, 13);
+            this.label11.Size = new System.Drawing.Size(37, 16);
             this.label11.TabIndex = 87;
             this.label11.Text = "VND";
             // 
@@ -448,23 +453,26 @@
             // 
             // cbbPhieuXuatMaHang
             // 
+            this.cbbPhieuXuatMaHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cbbPhieuXuatMaHang.FormattingEnabled = true;
             this.cbbPhieuXuatMaHang.Location = new System.Drawing.Point(144, 101);
             this.cbbPhieuXuatMaHang.Name = "cbbPhieuXuatMaHang";
-            this.cbbPhieuXuatMaHang.Size = new System.Drawing.Size(175, 21);
+            this.cbbPhieuXuatMaHang.Size = new System.Drawing.Size(175, 24);
             this.cbbPhieuXuatMaHang.TabIndex = 92;
             this.cbbPhieuXuatMaHang.SelectedIndexChanged += new System.EventHandler(this.cbbPhieuXuatMaHang_SelectedIndexChanged);
             // 
             // cbbPhieuXuatMaNhanVien
             // 
+            this.cbbPhieuXuatMaNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cbbPhieuXuatMaNhanVien.FormattingEnabled = true;
             this.cbbPhieuXuatMaNhanVien.Location = new System.Drawing.Point(141, 40);
             this.cbbPhieuXuatMaNhanVien.Name = "cbbPhieuXuatMaNhanVien";
-            this.cbbPhieuXuatMaNhanVien.Size = new System.Drawing.Size(175, 21);
+            this.cbbPhieuXuatMaNhanVien.Size = new System.Drawing.Size(175, 24);
             this.cbbPhieuXuatMaNhanVien.TabIndex = 94;
             // 
             // cbbPhieuXuatMaKho
             // 
+            this.cbbPhieuXuatMaKho.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cbbPhieuXuatMaKho.FormattingEnabled = true;
             this.cbbPhieuXuatMaKho.Items.AddRange(new object[] {
             "Xuất hàng bán đại lý lớn",
@@ -472,7 +480,7 @@
             "Xuất hàng tổng hợp"});
             this.cbbPhieuXuatMaKho.Location = new System.Drawing.Point(752, 37);
             this.cbbPhieuXuatMaKho.Name = "cbbPhieuXuatMaKho";
-            this.cbbPhieuXuatMaKho.Size = new System.Drawing.Size(175, 21);
+            this.cbbPhieuXuatMaKho.Size = new System.Drawing.Size(175, 24);
             this.cbbPhieuXuatMaKho.TabIndex = 95;
             // 
             // UXuatHang
