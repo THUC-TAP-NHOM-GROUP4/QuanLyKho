@@ -196,5 +196,11 @@ namespace QuanLyKho.View
 
             MessageBox.Show("Đã lưu hóa đơn!");
          }
+
+        private void sbtnHuyXuat_Click(object sender, EventArgs e)
+        {
+            this.gridControlXuatHang.DataSource = null;
+
+        }
     }
 }

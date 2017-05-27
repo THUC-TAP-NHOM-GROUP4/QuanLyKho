@@ -417,6 +417,7 @@
             this.sbtnHuyXuat.Size = new System.Drawing.Size(103, 30);
             this.sbtnHuyXuat.TabIndex = 88;
             this.sbtnHuyXuat.Text = "Hủy";
+            this.sbtnHuyXuat.Click += new System.EventHandler(this.sbtnHuyXuat_Click);
             // 
             // txtPhieuXuatTongTien
             // 
