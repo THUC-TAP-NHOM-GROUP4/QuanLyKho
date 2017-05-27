@@ -44,6 +44,9 @@ namespace QuanLyKho.View
             cbbPhieuXuatMaKhachHang.DataSource = control.getList_KhachHang_Ma();
             cbbPhieuXuatMaKhachHang.DisplayMember = "ma";
             cbbPhieuXuatMaKhachHang.ValueMember = "ma";
+            cbbPhieuXuatMaKho.DataSource = control.getList_Kho();
+            cbbPhieuXuatMaKho.DisplayMember = "ma";
+            cbbPhieuXuatMaKho.ValueMember = "ma";
             cbbPhieuXuatMaHang.DataSource = control.getList_HangHoaPhieuXuat();
             cbbPhieuXuatMaHang.DisplayMember = "ma";
             cbbPhieuXuatMaHang.ValueMember = "ma";          
@@ -91,9 +94,9 @@ namespace QuanLyKho.View
             }
             errSoLuongHang.Clear();
 
-            if (txtPhieuXuatKhoMa.Text.ToString().Trim().Equals(""))
+            if (cbbPhieuXuatMaKho.Text.ToString().Trim().Equals(""))
             {
-                errMaKho.SetError(txtPhieuXuatKhoMa, "Nhap ten hang");
+                errMaKho.SetError(cbbPhieuXuatMaKho, "Nhap ten hang");
                 return false;
             }
             errMaKho.Clear();
@@ -130,7 +133,7 @@ namespace QuanLyKho.View
                     ChiTietPhieuXuat ctpx = new ChiTietPhieuXuat();
                     ctpx.HangHoaMa = cbbPhieuXuatMaHang.Text.ToString().Trim();
                     ctpx.SoLuong = int.Parse(txtSoLuongHangXuat.Text.ToString().Trim());
-                    ctpx.KhoMa = txtPhieuXuatKhoMa.Text.ToString().Trim();
+                    ctpx.KhoMa = cbbPhieuXuatMaKho.Text.ToString().Trim();
                     gridControlXuatHang.DataSource = dt;
                      thanhtien = soluong * dongia;
                     ctpx.ThanhTien = thanhtien;
@@ -160,7 +163,7 @@ namespace QuanLyKho.View
 
             txtTenHang.Text = control.getTenHang(cbbPhieuXuatMaHang.Text.ToString().Trim());
             txtPhieuXuatDonGia.Text = control.getDonGia(cbbPhieuXuatMaHang.Text.ToString().Trim());
-            txtPhieuXuatKhoMa.Text = control.getKhoMa(cbbPhieuXuatMaHang.Text.ToString());
+            cbbPhieuXuatMaKho.Text = control.getKhoMa(cbbPhieuXuatMaHang.Text.ToString());
 
         }
 
@@ -171,6 +174,7 @@ namespace QuanLyKho.View
             px.Ma = control.get_PXma(px);
             px.KhachHangMa = cbbPhieuXuatMaKhachHang.SelectedValue.ToString().Trim();
             px.NoiDung = cbbNoiDungXuat.Text.ToString().Trim();
+            px.KhoMa = cbbPhieuXuatMaKho.Text.ToString().Trim();
             px.NhanVienMa = cbbPhieuXuatMaNhanVien.SelectedValue.ToString().Trim();
             px.TongTien = float.Parse(txtPhieuXuatTongTien.Text.ToString().Trim());
             control.insertPX(px);
@@ -180,7 +184,8 @@ namespace QuanLyKho.View
             {
 
                 ctpx.HangHoaMa = row[0].ToString();
-                ctpx.SoLuong = int.Parse(row[1].ToString());
+                ctpx.KhoMa = row[1].ToString();
+                ctpx.SoLuong = int.Parse(row[2].ToString());
                 double dongia = 0;
                 double.TryParse(row[3].ToString(), out dongia);
                 ctpx.DonGia = dongia;

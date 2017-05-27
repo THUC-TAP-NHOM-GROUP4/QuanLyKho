@@ -76,8 +76,8 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.cbbPhieuXuatMaHang = new System.Windows.Forms.ComboBox();
-            this.txtPhieuXuatKhoMa = new System.Windows.Forms.TextBox();
             this.cbbPhieuXuatMaNhanVien = new System.Windows.Forms.ComboBox();
+            this.cbbPhieuXuatMaKho = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.errTenHangHoa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewXuatHang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlXuatHang)).BeginInit();
@@ -216,9 +216,9 @@
             // 
             // txtSoLuongHangXuat
             // 
-            this.txtSoLuongHangXuat.Location = new System.Drawing.Point(780, 102);
+            this.txtSoLuongHangXuat.Location = new System.Drawing.Point(752, 102);
             this.txtSoLuongHangXuat.Name = "txtSoLuongHangXuat";
-            this.txtSoLuongHangXuat.Size = new System.Drawing.Size(147, 20);
+            this.txtSoLuongHangXuat.Size = new System.Drawing.Size(175, 20);
             this.txtSoLuongHangXuat.TabIndex = 74;
             // 
             // txtTenHang
@@ -454,14 +454,6 @@
             this.cbbPhieuXuatMaHang.TabIndex = 92;
             this.cbbPhieuXuatMaHang.SelectedIndexChanged += new System.EventHandler(this.cbbPhieuXuatMaHang_SelectedIndexChanged);
             // 
-            // txtPhieuXuatKhoMa
-            // 
-            this.txtPhieuXuatKhoMa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtPhieuXuatKhoMa.Location = new System.Drawing.Point(780, 32);
-            this.txtPhieuXuatKhoMa.Name = "txtPhieuXuatKhoMa";
-            this.txtPhieuXuatKhoMa.Size = new System.Drawing.Size(147, 22);
-            this.txtPhieuXuatKhoMa.TabIndex = 93;
-            // 
             // cbbPhieuXuatMaNhanVien
             // 
             this.cbbPhieuXuatMaNhanVien.FormattingEnabled = true;
@@ -470,13 +462,25 @@
             this.cbbPhieuXuatMaNhanVien.Size = new System.Drawing.Size(175, 21);
             this.cbbPhieuXuatMaNhanVien.TabIndex = 94;
             // 
+            // cbbPhieuXuatMaKho
+            // 
+            this.cbbPhieuXuatMaKho.FormattingEnabled = true;
+            this.cbbPhieuXuatMaKho.Items.AddRange(new object[] {
+            "Xuất hàng bán đại lý lớn",
+            "Xuất hàng bán siêu thị",
+            "Xuất hàng tổng hợp"});
+            this.cbbPhieuXuatMaKho.Location = new System.Drawing.Point(752, 37);
+            this.cbbPhieuXuatMaKho.Name = "cbbPhieuXuatMaKho";
+            this.cbbPhieuXuatMaKho.Size = new System.Drawing.Size(175, 21);
+            this.cbbPhieuXuatMaKho.TabIndex = 95;
+            // 
             // UXuatHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.Controls.Add(this.cbbPhieuXuatMaKho);
             this.Controls.Add(this.cbbPhieuXuatMaNhanVien);
-            this.Controls.Add(this.txtPhieuXuatKhoMa);
             this.Controls.Add(this.cbbPhieuXuatMaHang);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.txtPhieuXuatTongTien);
@@ -569,7 +573,7 @@
         private System.Windows.Forms.TextBox txtPhieuXuatTongTien;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox cbbPhieuXuatMaHang;
-        private System.Windows.Forms.TextBox txtPhieuXuatKhoMa;
         private System.Windows.Forms.ComboBox cbbPhieuXuatMaNhanVien;
+        private System.Windows.Forms.ComboBox cbbPhieuXuatMaKho;
     }
 }
