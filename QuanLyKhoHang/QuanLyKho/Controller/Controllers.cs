@@ -12,13 +12,32 @@ namespace QuanLyKho.Controller
     class Controllers
     {
         DataAccess da = new DataAccess();
-		 public bool addPhieuXuat(PhieuXuat px,ChiTietPhieuXuat ctpx)
+        public NhanVien[] getList_NhanVien()
+        {
+            DataTable table = da.Query("select *from NhanVien");
+            int n = table.Rows.Count;
+            int i, gioitinh = 0;
+            if (n == 0) return null;
+            NhanVien[] list = new NhanVien[n];
+            NhanVien nv = new NhanVien();
+            for (i = 0; i < n; i++)
+            {
+                nv = new NhanVien();
+                nv.Ma = table.Rows[i]["ma"].ToString().Trim();
+                nv.Ten = table.Rows[i]["ten"].ToString().Trim();
+              
+                list[i] = nv;
+
+            }
+            return list;
+        }
+        public bool addPhieuXuat(PhieuXuat px,ChiTietPhieuXuat ctpx)
         {
             SqlParameter[] para =
             {
                
                new SqlParameter("khoma",px.KhoMa),
-               new SqlParameter("manguoinhan",px.NguoiNhanMa),
+               new SqlParameter("manguoinhan",px.NhanVienMa),
                new SqlParameter("noidung",px.NoiDung),
                new SqlParameter("khachhangma",px.KhachHangMa),
                new SqlParameter("nhanvienma",px.NhanVienMa),
@@ -30,6 +49,14 @@ namespace QuanLyKho.Controller
             return true;
         }
 
+        public string get_PXma(PhieuXuat px)
+        {
+            DataTable table = da.Query(" select dbo.auto_maPhieuXuat()as ma");
+            string ma = "";
+            if (table.Rows.Count == 1)
+                return table.Rows[0]["ma"].ToString().Trim();
+            return ma;
+        }
 
         public List<HienThiPhieuXuat> getHTPX()
         {
@@ -159,6 +186,102 @@ namespace QuanLyKho.Controller
                 list[i] = table.Rows[i]["ma"].ToString().Trim();
             }
             list[n] = "tất cả";
+            return list;
+        }
+        public KhachHang[] getList_KhachHang_Ma()
+        {
+            DataTable table = da.Query("select *from KhachHang");
+            int n = table.Rows.Count;
+            int i;
+            if (n == 0) return null;
+            KhachHang[] list = new KhachHang[n];
+
+            for (i = 0; i < n; i++)
+            {
+                list[i] = new KhachHang();
+                list[i].ma = table.Rows[i]["ma"].ToString().Trim();
+                list[i].ten = table.Rows[i]["ten"].ToString().Trim();
+                list[i].diachi = table.Rows[i]["diachi"].ToString().Trim();
+                list[i].dienthoai = table.Rows[i]["dienthoai"].ToString().Trim();
+                list[i].email = table.Rows[i]["email"].ToString().Trim();
+
+            }
+            return list;
+
+        }
+        public string getTenHang(string ma)
+        {
+            DataTable table = da.Query("select ten from HangHoa where ma='" + ma + "'");
+            string ten = "";
+            if (table.Rows.Count == 1)
+                return table.Rows[0]["ten"].ToString().Trim();
+            return ten;
+        }
+        public string getTenKhachHang(string ma)
+        {
+            DataTable table = da.Query("select ten from KhachHang where ma='" + ma + "'");
+            string ten = "";
+            if (table.Rows.Count == 1)
+                return table.Rows[0]["ten"].ToString().Trim();
+            return ten;
+        }
+        public string getDonGia(string ma)
+        {
+            DataTable table = da.Query("select dongia from HangHoa where ma='" + ma + "'");
+            string dongia = "";
+            if (table.Rows.Count == 1)
+                return table.Rows[0]["dongia"].ToString().Trim();
+            return dongia;
+        }
+        public string getKhoMa(string hanghoama)
+        {
+            DataTable table = da.Query("select khoma from ChiTietPhieuNhap where hanghoama='" + hanghoama + "'");
+            string khoma = "";
+            if(table.Rows.Count==1)
+            {
+                return table.Rows[0]["khoma"].ToString().Trim();
+
+            }
+            return khoma;
+        }
+        public Kho[] getList_Kho()
+        {
+            DataTable table = da.Query("select *from Kho");
+            int n = table.Rows.Count;
+            int i;
+            if (n == 0) return null;
+            Kho[] list = new Kho[n];
+
+            for (i = 0; i < n; i++)
+            {
+                list[i] = new Kho();
+                list[i].ma = table.Rows[i]["ma"].ToString().Trim();
+                list[i].ten = table.Rows[i]["ten"].ToString().Trim();
+                
+            }
+            return list;
+        }
+        public HangHoa[] getList_HangHoaPhieuXuat()
+        {
+            DataTable table = da.Query("select *from HangHoa");
+            int n = table.Rows.Count;
+            int i;
+            if (n == 0) return null;
+            HangHoa[] list = new HangHoa[n];
+
+            for (i = 0; i < n; i++)
+            {
+                list[i] = new HangHoa();
+                list[i].Ma = table.Rows[i]["ma"].ToString().Trim();
+                list[i].Ten = table.Rows[i]["ten"].ToString().Trim();
+               // int soluong = 0;
+               // int.TryParse(table.Rows[i]["soluong"].ToString().Trim(), out soluong);
+               // list[i].Soluong = soluong;
+               //// list[i]. = table.Rows[i]["noisanxuat"].ToString().Trim();
+                float dongia = 0;
+                float.TryParse(table.Rows[i]["dongia"].ToString().Trim(), out dongia);
+                list[i].Dongia = dongia;
+            }
             return list;
         }
         public String[] getList_HangHoa_Ma()

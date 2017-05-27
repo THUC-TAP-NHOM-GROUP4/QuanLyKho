@@ -35,7 +35,7 @@
             this.grcMaNguoiXuat = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grcMaKhachHang = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridViewXuatHang = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridControlXuatHang = new DevExpress.XtraGrid.GridControl();
             this.btnXuatHang = new DevExpress.XtraEditors.SimpleButton();
             this.errMaNguoiXuatHang = new System.Windows.Forms.ErrorProvider(this.components);
@@ -50,12 +50,9 @@
             this.grcTenHang = new DevExpress.XtraGrid.Columns.GridColumn();
             this.label8 = new System.Windows.Forms.Label();
             this.txtSoLuongHangXuat = new System.Windows.Forms.TextBox();
-            this.cbbMaKho = new System.Windows.Forms.ComboBox();
-            this.txtMaHangHoaXuat = new System.Windows.Forms.TextBox();
             this.txtTenHang = new System.Windows.Forms.TextBox();
             this.grcThanhTien = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grcNoiDungXuat = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.txtMaNguoiNhanHang = new System.Windows.Forms.TextBox();
             this.lbcXuatKho = new DevExpress.XtraEditors.LabelControl();
             this.grcSoLuong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.label3 = new System.Windows.Forms.Label();
@@ -64,10 +61,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.grcMaPX = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.txtMaNguoiXuatHang = new System.Windows.Forms.TextBox();
             this.cbbNoiDungXuat = new System.Windows.Forms.ComboBox();
             this.lbMaPhieuXuat = new System.Windows.Forms.Label();
             this.cbbPhieuXuatMaKhachHang = new System.Windows.Forms.ComboBox();
@@ -80,8 +75,11 @@
             this.txtPhieuXuatTongTien = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.cbbPhieuXuatMaHang = new System.Windows.Forms.ComboBox();
+            this.txtPhieuXuatKhoMa = new System.Windows.Forms.TextBox();
+            this.cbbPhieuXuatMaNhanVien = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.errTenHangHoa)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewXuatHang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlXuatHang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errMaNguoiXuatHang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errSoLuongHang)).BeginInit();
@@ -125,20 +123,20 @@
             this.grcMaKhachHang.VisibleIndex = 7;
             this.grcMaKhachHang.Width = 68;
             // 
-            // gridView1
+            // gridViewXuatHang
             // 
-            this.gridView1.GridControl = this.gridControlXuatHang;
-            this.gridView1.Name = "gridView1";
+            this.gridViewXuatHang.GridControl = this.gridControlXuatHang;
+            this.gridViewXuatHang.Name = "gridViewXuatHang";
             // 
             // gridControlXuatHang
             // 
             this.gridControlXuatHang.Location = new System.Drawing.Point(5, 206);
-            this.gridControlXuatHang.MainView = this.gridView1;
+            this.gridControlXuatHang.MainView = this.gridViewXuatHang;
             this.gridControlXuatHang.Name = "gridControlXuatHang";
             this.gridControlXuatHang.Size = new System.Drawing.Size(923, 224);
             this.gridControlXuatHang.TabIndex = 77;
             this.gridControlXuatHang.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.gridViewXuatHang});
             // 
             // btnXuatHang
             // 
@@ -148,7 +146,7 @@
             this.btnXuatHang.Size = new System.Drawing.Size(103, 30);
             this.btnXuatHang.TabIndex = 79;
             this.btnXuatHang.Text = "Xuất hàng";
-            this.btnXuatHang.Click += new System.EventHandler(this.btnSuaXuat_Click);
+            this.btnXuatHang.Click += new System.EventHandler(this.btnXuatHang_Click);
             // 
             // errMaNguoiXuatHang
             // 
@@ -223,22 +221,6 @@
             this.txtSoLuongHangXuat.Size = new System.Drawing.Size(147, 20);
             this.txtSoLuongHangXuat.TabIndex = 74;
             // 
-            // cbbMaKho
-            // 
-            this.cbbMaKho.FormattingEnabled = true;
-            this.cbbMaKho.Location = new System.Drawing.Point(780, 33);
-            this.cbbMaKho.Name = "cbbMaKho";
-            this.cbbMaKho.Size = new System.Drawing.Size(147, 21);
-            this.cbbMaKho.TabIndex = 71;
-            // 
-            // txtMaHangHoaXuat
-            // 
-            this.txtMaHangHoaXuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtMaHangHoaXuat.Location = new System.Drawing.Point(144, 104);
-            this.txtMaHangHoaXuat.Name = "txtMaHangHoaXuat";
-            this.txtMaHangHoaXuat.Size = new System.Drawing.Size(175, 22);
-            this.txtMaHangHoaXuat.TabIndex = 70;
-            // 
             // txtTenHang
             // 
             this.txtTenHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
@@ -246,6 +228,7 @@
             this.txtTenHang.Name = "txtTenHang";
             this.txtTenHang.Size = new System.Drawing.Size(175, 22);
             this.txtTenHang.TabIndex = 69;
+            this.txtTenHang.TextChanged += new System.EventHandler(this.txtTenHang_TextChanged);
             // 
             // grcThanhTien
             // 
@@ -262,14 +245,6 @@
             this.grcNoiDungXuat.Visible = true;
             this.grcNoiDungXuat.VisibleIndex = 0;
             this.grcNoiDungXuat.Width = 78;
-            // 
-            // txtMaNguoiNhanHang
-            // 
-            this.txtMaNguoiNhanHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtMaNguoiNhanHang.Location = new System.Drawing.Point(144, 66);
-            this.txtMaNguoiNhanHang.Name = "txtMaNguoiNhanHang";
-            this.txtMaNguoiNhanHang.Size = new System.Drawing.Size(175, 22);
-            this.txtMaNguoiNhanHang.TabIndex = 68;
             // 
             // lbcXuatKho
             // 
@@ -292,7 +267,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label3.Location = new System.Drawing.Point(656, 67);
+            this.label3.Location = new System.Drawing.Point(326, 79);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(125, 16);
             this.label3.TabIndex = 63;
@@ -341,25 +316,15 @@
             this.label4.TabIndex = 64;
             this.label4.Text = "Mã hàng hóa:";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label2.Location = new System.Drawing.Point(6, 72);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(131, 16);
-            this.label2.TabIndex = 62;
-            this.label2.Text = "Mã người nhận hàng:";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label1.Location = new System.Drawing.Point(9, 38);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 16);
+            this.label1.Size = new System.Drawing.Size(90, 16);
             this.label1.TabIndex = 61;
-            this.label1.Text = "Mã người xuất hàng:";
+            this.label1.Text = "Mã nhân viên:";
             // 
             // grcMaPX
             // 
@@ -369,14 +334,6 @@
             this.grcMaPX.VisibleIndex = 0;
             this.grcMaPX.Width = 48;
             // 
-            // txtMaNguoiXuatHang
-            // 
-            this.txtMaNguoiXuatHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtMaNguoiXuatHang.Location = new System.Drawing.Point(144, 33);
-            this.txtMaNguoiXuatHang.Name = "txtMaNguoiXuatHang";
-            this.txtMaNguoiXuatHang.Size = new System.Drawing.Size(175, 22);
-            this.txtMaNguoiXuatHang.TabIndex = 67;
-            // 
             // cbbNoiDungXuat
             // 
             this.cbbNoiDungXuat.FormattingEnabled = true;
@@ -384,9 +341,9 @@
             "Xuất hàng bán đại lý lớn",
             "Xuất hàng bán siêu thị",
             "Xuất hàng tổng hợp"});
-            this.cbbNoiDungXuat.Location = new System.Drawing.Point(780, 61);
+            this.cbbNoiDungXuat.Location = new System.Drawing.Point(446, 73);
             this.cbbNoiDungXuat.Name = "cbbNoiDungXuat";
-            this.cbbNoiDungXuat.Size = new System.Drawing.Size(147, 21);
+            this.cbbNoiDungXuat.Size = new System.Drawing.Size(175, 21);
             this.cbbNoiDungXuat.TabIndex = 80;
             // 
             // lbMaPhieuXuat
@@ -406,12 +363,13 @@
             this.cbbPhieuXuatMaKhachHang.Name = "cbbPhieuXuatMaKhachHang";
             this.cbbPhieuXuatMaKhachHang.Size = new System.Drawing.Size(175, 21);
             this.cbbPhieuXuatMaKhachHang.TabIndex = 82;
+            this.cbbPhieuXuatMaKhachHang.SelectedIndexChanged += new System.EventHandler(this.cbbPhieuXuatMaKhachHang_SelectedIndexChanged);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label9.Location = new System.Drawing.Point(326, 69);
+            this.label9.Location = new System.Drawing.Point(9, 78);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(107, 16);
             this.label9.TabIndex = 83;
@@ -420,7 +378,7 @@
             // txtPhieuXuatTenKhachHang
             // 
             this.txtPhieuXuatTenKhachHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtPhieuXuatTenKhachHang.Location = new System.Drawing.Point(446, 62);
+            this.txtPhieuXuatTenKhachHang.Location = new System.Drawing.Point(144, 73);
             this.txtPhieuXuatTenKhachHang.Name = "txtPhieuXuatTenKhachHang";
             this.txtPhieuXuatTenKhachHang.Size = new System.Drawing.Size(175, 22);
             this.txtPhieuXuatTenKhachHang.TabIndex = 84;
@@ -487,11 +445,39 @@
             this.label13.TabIndex = 91;
             this.label13.Text = "VND";
             // 
+            // cbbPhieuXuatMaHang
+            // 
+            this.cbbPhieuXuatMaHang.FormattingEnabled = true;
+            this.cbbPhieuXuatMaHang.Location = new System.Drawing.Point(144, 101);
+            this.cbbPhieuXuatMaHang.Name = "cbbPhieuXuatMaHang";
+            this.cbbPhieuXuatMaHang.Size = new System.Drawing.Size(175, 21);
+            this.cbbPhieuXuatMaHang.TabIndex = 92;
+            this.cbbPhieuXuatMaHang.SelectedIndexChanged += new System.EventHandler(this.cbbPhieuXuatMaHang_SelectedIndexChanged);
+            // 
+            // txtPhieuXuatKhoMa
+            // 
+            this.txtPhieuXuatKhoMa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtPhieuXuatKhoMa.Location = new System.Drawing.Point(780, 32);
+            this.txtPhieuXuatKhoMa.Name = "txtPhieuXuatKhoMa";
+            this.txtPhieuXuatKhoMa.Size = new System.Drawing.Size(147, 22);
+            this.txtPhieuXuatKhoMa.TabIndex = 93;
+            // 
+            // cbbPhieuXuatMaNhanVien
+            // 
+            this.cbbPhieuXuatMaNhanVien.FormattingEnabled = true;
+            this.cbbPhieuXuatMaNhanVien.Location = new System.Drawing.Point(141, 40);
+            this.cbbPhieuXuatMaNhanVien.Name = "cbbPhieuXuatMaNhanVien";
+            this.cbbPhieuXuatMaNhanVien.Size = new System.Drawing.Size(175, 21);
+            this.cbbPhieuXuatMaNhanVien.TabIndex = 94;
+            // 
             // UXuatHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.Controls.Add(this.cbbPhieuXuatMaNhanVien);
+            this.Controls.Add(this.txtPhieuXuatKhoMa);
+            this.Controls.Add(this.cbbPhieuXuatMaHang);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.txtPhieuXuatTongTien);
             this.Controls.Add(this.label12);
@@ -510,23 +496,18 @@
             this.Controls.Add(this.btnThemXuatHang);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtSoLuongHangXuat);
-            this.Controls.Add(this.cbbMaKho);
-            this.Controls.Add(this.txtMaHangHoaXuat);
             this.Controls.Add(this.txtTenHang);
-            this.Controls.Add(this.txtMaNguoiNhanHang);
             this.Controls.Add(this.lbcXuatKho);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtMaNguoiXuatHang);
             this.Name = "UXuatHang";
             this.Size = new System.Drawing.Size(931, 534);
             this.Load += new System.EventHandler(this.UXuatHang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errTenHangHoa)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewXuatHang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlXuatHang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errMaNguoiXuatHang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errSoLuongHang)).EndInit();
@@ -545,23 +526,18 @@
         private System.Windows.Forms.ErrorProvider errTenHangHoa;
         private DevExpress.XtraEditors.SimpleButton btnXuatHang;
         private DevExpress.XtraGrid.GridControl gridControlXuatHang;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewXuatHang;
         private System.Windows.Forms.Label label7;
         private DevExpress.XtraEditors.SimpleButton btnThemXuatHang;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtSoLuongHangXuat;
-        private System.Windows.Forms.ComboBox cbbMaKho;
-        private System.Windows.Forms.TextBox txtMaHangHoaXuat;
         private System.Windows.Forms.TextBox txtTenHang;
-        private System.Windows.Forms.TextBox txtMaNguoiNhanHang;
         private DevExpress.XtraEditors.LabelControl lbcXuatKho;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtMaNguoiXuatHang;
         private DevExpress.XtraGrid.Columns.GridColumn grcMaKho;
         private DevExpress.XtraGrid.Columns.GridColumn grcMaNguoiXuat;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
@@ -592,5 +568,8 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtPhieuXuatTongTien;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox cbbPhieuXuatMaHang;
+        private System.Windows.Forms.TextBox txtPhieuXuatKhoMa;
+        private System.Windows.Forms.ComboBox cbbPhieuXuatMaNhanVien;
     }
 }

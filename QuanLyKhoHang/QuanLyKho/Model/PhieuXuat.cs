@@ -8,10 +8,13 @@ namespace QuanLyKho.Model
 {
     public class PhieuXuat
     {
-       public String KhoMa { get; set; }
-        public String NguoiNhanMa { get; set; }
-        public String NoiDung { get; set; }
-        public String KhachHangMa { get; set; }
-        public String NhanVienMa { get; set; }
+        public PhieuXuat() { }
+        public string Ma { get; set; }
+        public DateTime Ngay { get; set; }
+        public string KhoMa { get; set; }
+        public string NoiDung { get; set; }
+        public string KhachHangMa { get; set; }
+        public string NhanVienMa { get; set; }
+        public double TongTien { get; set; }
     }
 }
