@@ -1,4 +1,6 @@
-﻿USE [TTN_QLKho]
+﻿--Nga chua update phan procedure,... gay loi
+
+USE [TTN_QLKho]
 GO
 
 -- TAO BANG BO MON
