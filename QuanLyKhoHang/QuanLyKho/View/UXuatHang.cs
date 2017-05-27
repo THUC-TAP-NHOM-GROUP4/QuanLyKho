@@ -17,44 +17,64 @@ namespace QuanLyKho.View
 
         Controllers control = new Controllers();
         List<HienThiPhieuXuat> lsHTPX = new List<Model.HienThiPhieuXuat>();
-
+        DataTable dt = new DataTable();
         public UXuatHang()
         {
             InitializeComponent();
         }
+        private void tabPhieuXuatload()
+        {
 
+            dt.Columns.Add("mã hàng", typeof(string));
+            dt.Columns.Add("mã kho", typeof(string));
+            dt.Columns.Add("số lượng", typeof(string));
+            dt.Columns.Add("thành tiền", typeof(string));
+
+            PhieuXuat px = new PhieuXuat();
+            lbMaPhieuXuat.Text = "Mã Phiếu Xuất: "+control.get_PXma(px);
+            cbbPhieuXuatMaNhanVien.DataSource = control.getList_NhanVien();
+            cbbPhieuXuatMaNhanVien.DisplayMember = "ma";
+            cbbPhieuXuatMaNhanVien.ValueMember = "ma";
+            gridControlXuatHang.DataSource = dt;
+           
+        }
         private void UXuatHang_Load(object sender, EventArgs e)
         {
-            lsHTPX = control.getHTPX();
+            tabPhieuXuatload();
+            cbbPhieuXuatMaKhachHang.DataSource = control.getList_KhachHang_Ma();
+            cbbPhieuXuatMaKhachHang.DisplayMember = "ma";
+            cbbPhieuXuatMaKhachHang.ValueMember = "ma";
+            cbbPhieuXuatMaKho.DataSource = control.getList_Kho();
+            cbbPhieuXuatMaKho.DisplayMember = "ma";
+            cbbPhieuXuatMaKho.ValueMember = "ma";
+            cbbPhieuXuatMaHang.DataSource = control.getList_HangHoaPhieuXuat();
+            cbbPhieuXuatMaHang.DisplayMember = "ma";
+            cbbPhieuXuatMaHang.ValueMember = "ma";          
             gridControlXuatHang.DataSource = lsHTPX;
 
         }
         public bool KiemTra()
         {
 
-            if (txtMaNguoiXuatHang.Text.ToString().Trim().Equals(""))
+            if (cbbPhieuXuatMaNhanVien.Text.ToString().Trim().Equals(""))
             {
-                errMaNguoiXuatHang.SetError(txtMaNguoiXuatHang, "Nhap ma nguoi xuat");
+                errMaNguoiXuatHang.SetError(cbbPhieuXuatMaNhanVien, "Nhap ma nguoi xuat");
                 return false;
             }
             errMaNguoiXuatHang.Clear();
-            if (txtMaNguoiNhanHang.Text.ToString().Trim().Equals(""))
-            {
-                errMaNguoiNhanHang.SetError(txtMaNguoiNhanHang, "Nhap ma nguoi nhan");
-                return false;
-            }
+           
             errMaNguoiNhanHang.Clear();
 
-            if (txtMaKhachHang.Text.ToString().Trim().Equals(""))
+            if (cbbPhieuXuatMaKhachHang.Text.ToString().Trim().Equals(""))
             {
-                errMaKhachHang.SetError(txtMaKhachHang, "Nhap ma nguoi nhan");
+                errMaKhachHang.SetError(cbbPhieuXuatMaKhachHang, "Nhap ma nguoi nhan");
                 return false;
             }
             errMaKhachHang.Clear();
 
-            if (txtMaHangHoaXuat.Text.ToString().Trim().Equals(""))
+            if (cbbPhieuXuatMaHang.Text.ToString().Trim().Equals(""))
             {
-                errMaHangHoa.SetError(txtMaHangHoaXuat, "Nhap ma hang");
+                errMaHangHoa.SetError(cbbPhieuXuatMaHang, "Nhap ma hang");
                 return false;
             }
             errMaHangHoa.Clear();
@@ -74,50 +94,112 @@ namespace QuanLyKho.View
             }
             errSoLuongHang.Clear();
 
-            if (cbbMaKho.Text.ToString().Trim().Equals(""))
+            if (cbbPhieuXuatMaKho.Text.ToString().Trim().Equals(""))
             {
-                errMaKho.SetError(cbbMaKho, "Nhap ten hang");
+                errMaKho.SetError(cbbPhieuXuatMaKho, "Nhap ten hang");
                 return false;
             }
             errMaKho.Clear();
 
-            if (rtbNoiDungXuatHang.Text.ToString().Trim().Equals(""))
+            if (cbbNoiDungXuat.Text.ToString().Trim().Equals(""))
             {
-                errNoiDungXuatHang.SetError(rtbNoiDungXuatHang, "Nhap ten hang");
+                errNoiDungXuatHang.SetError(cbbNoiDungXuat, "chọn nội dung xuất");
                 return false;
             }
             errNoiDungXuatHang.Clear();
             return true;
         }
+
+        double tongtienpx = 0;
+        
         private void btnThemXuatHang_Click(object sender, EventArgs e)
         {
+         
+            HangHoa hh = new HangHoa();
+
             if (KiemTra())
             {
-                PhieuXuat px = new PhieuXuat();
-
-                px.KhoMa = cbbMaKho.Text.ToString().Trim();
-                px.NguoiNhanMa = txtMaNguoiNhanHang.Text.ToString().Trim();
-                px.NhanVienMa = txtMaNguoiXuatHang.Text.ToString().Trim();
-                px.NoiDung = rtbNoiDungXuatHang.Text.ToString().Trim();
-                px.KhachHangMa = txtMaKhachHang.Text.ToString().Trim();
-                ChiTietPhieuXuat ctpx = new ChiTietPhieuXuat();
-                ctpx.HangHoaMa = txtMaHangHoaXuat.Text.ToString().Trim();
-                ctpx.SoLuong = int.Parse(txtSoLuongHangXuat.Text.ToString().Trim());
-                if (control.addPhieuXuat(px, ctpx))
-                {
-                    lsHTPX = control.getHTPX();
-                    gridControlXuatHang.DataSource = lsHTPX;
-                }
+                if (int.Parse(txtSoLuongHangXuat.Text.ToString().Trim()) == 0)
+                    MessageBox.Show("Vui lòng kiểm tra lại số lượng!");
                 else
                 {
-                    MessageBox.Show("Nhap phieu xuat khong thanh cong");
+                    int row = gridViewXuatHang.DataRowCount + 1;
+                    double soluong = 0, dongia = 0, thanhtien = 0;
+                
+                    double.TryParse(txtSoLuongHangXuat.Text, out soluong);
+                    double.TryParse(txtPhieuXuatDonGia.Text, out dongia);
+
+
+                    ChiTietPhieuXuat ctpx = new ChiTietPhieuXuat();
+                    ctpx.HangHoaMa = cbbPhieuXuatMaHang.Text.ToString().Trim();
+                    ctpx.SoLuong = int.Parse(txtSoLuongHangXuat.Text.ToString().Trim());
+                    ctpx.KhoMa = cbbPhieuXuatMaKho.Text.ToString().Trim();
+                    gridControlXuatHang.DataSource = dt;
+                     thanhtien = soluong * dongia;
+                    ctpx.ThanhTien = thanhtien;
+                    dt.Rows.Add(ctpx.HangHoaMa,ctpx.KhoMa, ctpx.SoLuong.ToString(), ctpx.ThanhTien.ToString());
+                    tongtienpx += thanhtien;
                 }
-
             }
+            txtPhieuXuatTongTien.Text = tongtienpx.ToString();
         }
-
+      
         private void btnSuaXuat_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void cbbPhieuXuatMaKhachHang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtPhieuXuatTenKhachHang.Text = control.getTenKhachHang(cbbPhieuXuatMaKhachHang.Text.ToString().Trim());
+        }
+
+        private void txtTenHang_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void cbbPhieuXuatMaHang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            txtTenHang.Text = control.getTenHang(cbbPhieuXuatMaHang.Text.ToString().Trim());
+            txtPhieuXuatDonGia.Text = control.getDonGia(cbbPhieuXuatMaHang.Text.ToString().Trim());
+            cbbPhieuXuatMaKho.Text = control.getKhoMa(cbbPhieuXuatMaHang.Text.ToString());
+
+        }
+
+        private void btnXuatHang_Click(object sender, EventArgs e)
+        {
+
+            PhieuXuat px = new PhieuXuat();
+            px.Ma = control.get_PXma(px);
+            px.KhachHangMa = cbbPhieuXuatMaKhachHang.SelectedValue.ToString().Trim();
+            px.NoiDung = cbbNoiDungXuat.Text.ToString().Trim();
+            px.KhoMa = cbbPhieuXuatMaKho.Text.ToString().Trim();
+            px.NhanVienMa = cbbPhieuXuatMaNhanVien.SelectedValue.ToString().Trim();
+            px.TongTien = float.Parse(txtPhieuXuatTongTien.Text.ToString().Trim());
+            control.insertPX(px);
+            int hesoquydoi = 0;
+            ChiTietPhieuXuat ctpx = new ChiTietPhieuXuat();
+            foreach (DataRow row in dt.Rows)
+            {
+
+                ctpx.HangHoaMa = row[0].ToString();
+                ctpx.KhoMa = row[1].ToString();
+                ctpx.SoLuong = int.Parse(row[2].ToString());
+                double dongia = 0;
+                double.TryParse(row[3].ToString(), out dongia);
+                ctpx.DonGia = dongia;
+                control.insertChiTietPX(ctpx, px.Ma);
+
+
+            }
+
+            MessageBox.Show("Đã lưu hóa đơn!");
+         }
+
+        private void sbtnHuyXuat_Click(object sender, EventArgs e)
+        {
+            this.gridControlXuatHang.DataSource = null;
 
         }
     }
