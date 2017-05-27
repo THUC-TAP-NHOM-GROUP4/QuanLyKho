@@ -115,5 +115,10 @@ namespace QuanLyKho.View
 
             }
         }
+
+        private void btnSuaXuat_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
