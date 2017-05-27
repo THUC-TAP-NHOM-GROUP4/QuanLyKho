@@ -37,9 +37,6 @@
             this.grcMaKhachHang = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridControlXuatHang = new DevExpress.XtraGrid.GridControl();
-            this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
-            this.btnTimKiem = new DevExpress.XtraEditors.SimpleButton();
-            this.btnXoaXuat = new DevExpress.XtraEditors.SimpleButton();
             this.btnSuaXuat = new DevExpress.XtraEditors.SimpleButton();
             this.txtMaKhachHang = new System.Windows.Forms.TextBox();
             this.errMaNguoiXuatHang = new System.Windows.Forms.ErrorProvider(this.components);
@@ -128,42 +125,15 @@
             this.gridControlXuatHang.Location = new System.Drawing.Point(4, 221);
             this.gridControlXuatHang.MainView = this.gridView1;
             this.gridControlXuatHang.Name = "gridControlXuatHang";
-            this.gridControlXuatHang.Size = new System.Drawing.Size(923, 252);
+            this.gridControlXuatHang.Size = new System.Drawing.Size(923, 224);
             this.gridControlXuatHang.TabIndex = 77;
             this.gridControlXuatHang.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
-            // btnHuy
-            // 
-            this.btnHuy.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy.Image")));
-            this.btnHuy.Location = new System.Drawing.Point(816, 474);
-            this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(103, 44);
-            this.btnHuy.TabIndex = 82;
-            this.btnHuy.Text = "Hủy";
-            // 
-            // btnTimKiem
-            // 
-            this.btnTimKiem.Image = ((System.Drawing.Image)(resources.GetObject("btnTimKiem.Image")));
-            this.btnTimKiem.Location = new System.Drawing.Point(711, 474);
-            this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(103, 44);
-            this.btnTimKiem.TabIndex = 81;
-            this.btnTimKiem.Text = "Tìm Kiếm";
-            // 
-            // btnXoaXuat
-            // 
-            this.btnXoaXuat.Image = ((System.Drawing.Image)(resources.GetObject("btnXoaXuat.Image")));
-            this.btnXoaXuat.Location = new System.Drawing.Point(607, 474);
-            this.btnXoaXuat.Name = "btnXoaXuat";
-            this.btnXoaXuat.Size = new System.Drawing.Size(103, 44);
-            this.btnXoaXuat.TabIndex = 80;
-            this.btnXoaXuat.Text = "Xóa";
-            // 
             // btnSuaXuat
             // 
             this.btnSuaXuat.Image = ((System.Drawing.Image)(resources.GetObject("btnSuaXuat.Image")));
-            this.btnSuaXuat.Location = new System.Drawing.Point(503, 474);
+            this.btnSuaXuat.Location = new System.Drawing.Point(820, 450);
             this.btnSuaXuat.Name = "btnSuaXuat";
             this.btnSuaXuat.Size = new System.Drawing.Size(103, 44);
             this.btnSuaXuat.TabIndex = 79;
@@ -214,7 +184,7 @@
             // btnThemXuatHang
             // 
             this.btnThemXuatHang.Image = ((System.Drawing.Image)(resources.GetObject("btnThemXuatHang.Image")));
-            this.btnThemXuatHang.Location = new System.Drawing.Point(399, 475);
+            this.btnThemXuatHang.Location = new System.Drawing.Point(716, 451);
             this.btnThemXuatHang.Name = "btnThemXuatHang";
             this.btnThemXuatHang.Size = new System.Drawing.Size(103, 44);
             this.btnThemXuatHang.TabIndex = 78;
@@ -417,9 +387,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.Controls.Add(this.btnHuy);
-            this.Controls.Add(this.btnTimKiem);
-            this.Controls.Add(this.btnXoaXuat);
             this.Controls.Add(this.btnSuaXuat);
             this.Controls.Add(this.txtMaKhachHang);
             this.Controls.Add(this.gridControlXuatHang);
@@ -461,9 +428,6 @@
         #endregion
 
         private System.Windows.Forms.ErrorProvider errTenHangHoa;
-        private DevExpress.XtraEditors.SimpleButton btnHuy;
-        private DevExpress.XtraEditors.SimpleButton btnTimKiem;
-        private DevExpress.XtraEditors.SimpleButton btnXoaXuat;
         private DevExpress.XtraEditors.SimpleButton btnSuaXuat;
         private System.Windows.Forms.TextBox txtMaKhachHang;
         private DevExpress.XtraGrid.GridControl gridControlXuatHang;
