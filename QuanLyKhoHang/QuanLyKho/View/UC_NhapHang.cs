@@ -28,41 +28,26 @@ namespace QuanLyKho.View
             cbbmanguoinhaphang.DataSource = hl.Convert(da.Query("select ma from NhanVien"));
             cbbmanhacungcap.DataSource = hl.Convert(da.Query("select ma from NhaCungCap"));
             cbbmanhom.DataSource = hl.Convert(da.Query("select ma from Nhom"));
+            cbbhanghoama.DataSource = hl.Convert(da.Query("select ma from Hanghoa"));
         }
         Hepl hl = new Hepl();
-       
+        List<ChitietPhieuNhap> lst = new List<ChitietPhieuNhap>();
         private void btnThemNhapHang_Click(object sender, EventArgs e)
         {
-            string[] str = { txtMaNguoiGiaoNhapHang.Text, cbbmanguoinhaphang.Text, txtMaHangHoaNhap.Text, txtTenHangHoaNhap.Text, txtSoLuongNhapHang.Text, txtdongia.Text, cbbmakho.Text, cbbmanhom.Text, rtbNoiDungNhapHang.Text };
+            string[] str = { txtMaNguoiGiaoNhapHang.Text, cbbmanguoinhaphang.Text, cbbhanghoama.Text,  txtSoLuongNhapHang.Text, txtdongia.Text, cbbmakho.Text, cbbmanhom.Text, rtbNoiDungNhapHang.Text };
             if (hl.Dieukhien(str) == 1)
             {
                 PhieuNhap pn = new PhieuNhap();
                 HangHoa hh = new HangHoa();
-               
-                pn.NguoiGiaoMa = txtMaNguoiGiaoNhapHang.Text;
-                pn.NhaCungCapMa = cbbmanhacungcap.Text;
-                pn.NhanVienMa = cbbmanguoinhaphang.Text;
-                pn.NoiDung = rtbNoiDungNhapHang.Text;
-                pn.KhoMa = cbbmakho.Text;
-                hh.Ma = txtMaHangHoaNhap.Text;
-                hh.Ten = txtTenHangHoaNhap.Text;
-                hh.NhomMa = cbbmanhom.Text;
-                hh.Soluong = int.Parse(txtSoLuongNhapHang.Text);
-                hh.Dongia = float.Parse(txtdongia.Text);
-                pn.Ngay = DateTime.Parse(txtngaynhap.Text);
-                da.NonQuery("ProcInsert", new SqlParameter("@manguoigiaohang", pn.NguoiGiaoMa),
-                                        new SqlParameter("@manguoinhaphang", pn.NhanVienMa),
-                                        new SqlParameter("@mahanghoa", hh.Ma),
-                                        new SqlParameter("@tenhanghoa", hh.Ten),
-                                        new SqlParameter("@soluong", hh.Soluong),
-                                        new SqlParameter("@manhom", hh.NhomMa),
-                                        new SqlParameter("@dongia", hh.Dongia),
-                                        new SqlParameter("@manhacungcap", pn.NhaCungCapMa),
-                                        new SqlParameter("@makho", pn.KhoMa),
-                                        new SqlParameter("@ngaynhap", pn.Ngay),
-                                        new SqlParameter("@noidungnhap", pn.NoiDung));
+
+                ChitietPhieuNhap ctpn = new ChitietPhieuNhap();
+                ctpn.hanghoama = cbbhanghoama.Text;
+                ctpn.khoma = cbbmakho.Text;
+                ctpn.soluong =int.Parse( txtSoLuongNhapHang.Text);
+                ctpn.dongia = float.Parse(txtdongia.Text);
+                lst.Add(ctpn);
                 MessageBox.Show("Thành công");
-                gridControlNhapHang.DataSource = da.Query("ProcGetList");
+               
 
             }
              else
@@ -98,13 +83,35 @@ namespace QuanLyKho.View
 
         private void btnHuyNhapHang_Click(object sender, EventArgs e)
         {
-            txtMaHangHoaNhap.Text = "";
+            cbbhanghoama.Text = "";
             txtMaNguoiGiaoNhapHang.Text = "";
             txtngaynhap.Text = "";
             txtdongia.Text = "";
             txtSoLuongNhapHang.Text = "";
             rtbNoiDungNhapHang.Text = "";
-            txtTenHangHoaNhap.Text = "";
+           
+        }
+
+        private void btnLuulai_Click(object sender, EventArgs e)
+        {
+            PhieuNhap pn = new PhieuNhap();
+            pn.NhanVienMa = cbbmanguoinhaphang.Text;
+            pn.Ngay = DateTime.Parse(txtngaynhap.Text);
+            pn.NhaCungCapMa = cbbmanhacungcap.Text;
+            pn.NguoiGiaoMa = txtMaNguoiGiaoNhapHang.Text;
+            pn.NoiDung = rtbNoiDungNhapHang.Text;
+            pn.KhoMa = cbbmakho.Text;
+            pn.ThemPhieuNhap(pn.NhanVienMa, pn.Ngay, pn.NhaCungCapMa, pn.NguoiGiaoMa, pn.NoiDung, pn.KhoMa);
+            foreach(var item in lst)
+            {
+                ChitietPhieuNhap chitiet = new ChitietPhieuNhap();
+                chitiet.hanghoama = item.hanghoama;
+                chitiet.soluong = item.soluong;
+                chitiet.dongia = item.dongia;
+                chitiet.ThemVaoChitiet(chitiet.hanghoama, chitiet.soluong, chitiet.dongia);
+            }
+            MessageBox.Show("Thanh cong");
+            gridControlNhapHang.DataSource = da.Query("ProcGetList");
         }
     }
 }
