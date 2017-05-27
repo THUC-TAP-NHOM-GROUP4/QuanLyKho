@@ -13,6 +13,7 @@ namespace QuanLyKho.Model
         public string HangHoaMa { get; set; }
         public string KhoMa { get; set; }
         public int SoLuong { get; set; }
+        public double DonGia { get; set; }
         public double ThanhTien { get; set; }
 
 

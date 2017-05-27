@@ -53,17 +53,13 @@ namespace QuanLyKho.View
         public bool KiemTra()
         {
 
-            if (txtMaNguoiXuatHang.Text.ToString().Trim().Equals(""))
+            if (cbbPhieuXuatMaNhanVien.Text.ToString().Trim().Equals(""))
             {
-                errMaNguoiXuatHang.SetError(txtMaNguoiXuatHang, "Nhap ma nguoi xuat");
+                errMaNguoiXuatHang.SetError(cbbPhieuXuatMaNhanVien, "Nhap ma nguoi xuat");
                 return false;
             }
             errMaNguoiXuatHang.Clear();
-            if (txtMaNguoiNhanHang.Text.ToString().Trim().Equals(""))
-            {
-                errMaNguoiNhanHang.SetError(txtMaNguoiNhanHang, "Nhap ma nguoi nhan");
-                return false;
-            }
+           
             errMaNguoiNhanHang.Clear();
 
             if (cbbPhieuXuatMaKhachHang.Text.ToString().Trim().Equals(""))
@@ -175,9 +171,9 @@ namespace QuanLyKho.View
             px.Ma = control.get_PXma(px);
             px.KhachHangMa = cbbPhieuXuatMaKhachHang.SelectedValue.ToString().Trim();
             px.NoiDung = cbbNoiDungXuat.Text.ToString().Trim();
-            px.NhanVienMa = cbbPhieu.SelectedValue.ToString().Trim();
-            px.TongTien = float.Parse(txtPXTongTien.Text.ToString().Trim());
-            controller.insertPX(px);
+            px.NhanVienMa = cbbPhieuXuatMaNhanVien.SelectedValue.ToString().Trim();
+            px.TongTien = float.Parse(txtPhieuXuatTongTien.Text.ToString().Trim());
+            control.insertPX(px);
             int hesoquydoi = 0;
             ChiTietPhieuXuat ctpx = new ChiTietPhieuXuat();
             foreach (DataRow row in dt.Rows)
@@ -185,18 +181,15 @@ namespace QuanLyKho.View
 
                 ctpx.HangHoaMa = row[0].ToString();
                 ctpx.SoLuong = int.Parse(row[1].ToString());
-                ctpx.DonVi = row[2].ToString().Trim();
                 double dongia = 0;
                 double.TryParse(row[3].ToString(), out dongia);
                 ctpx.DonGia = dongia;
-                ctpx.DonViQuyDoiMa = controller.getDonViQuyDoiMa(ctpx.DonVi);
-                controller.insertChiTietPX(ctpx, px.Ma);
+                control.insertChiTietPX(ctpx, px.Ma);
 
 
             }
 
             MessageBox.Show("Đã lưu hóa đơn!");
-        }
-    }
+         }
     }
 }

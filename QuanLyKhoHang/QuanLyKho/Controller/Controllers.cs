@@ -31,22 +31,34 @@ namespace QuanLyKho.Controller
             }
             return list;
         }
-        public bool addPhieuXuat(PhieuXuat px,ChiTietPhieuXuat ctpx)
+        public void insertChiTietPX(ChiTietPhieuXuat ctpx, string ma)
+        {
+            SqlParameter[] para =
+        {
+                new SqlParameter("phieuxuatma",ma),
+                new SqlParameter("hanghoama",ctpx.HangHoaMa),
+                new SqlParameter("soluong",ctpx.SoLuong),             
+                new SqlParameter("dongia",ctpx.DonGia)
+
+
+            };
+            da.Query("procedure_insertChiTietPhieuXuat", para);
+
+        }
+        public void insertPX(PhieuXuat px)
         {
             SqlParameter[] para =
             {
                
                new SqlParameter("khoma",px.KhoMa),
-               new SqlParameter("manguoinhan",px.NhanVienMa),
                new SqlParameter("noidung",px.NoiDung),
                new SqlParameter("khachhangma",px.KhachHangMa),
                new SqlParameter("nhanvienma",px.NhanVienMa),
-               new SqlParameter("hanghoama",ctpx.HangHoaMa),
-               new SqlParameter("soluong",ctpx.SoLuong)
+               new SqlParameter("tongtien",px.TongTien)
 
             };
             da.Query("procedure_insertPhieuXuat", para);
-            return true;
+            
         }
 
         public string get_PXma(PhieuXuat px)
