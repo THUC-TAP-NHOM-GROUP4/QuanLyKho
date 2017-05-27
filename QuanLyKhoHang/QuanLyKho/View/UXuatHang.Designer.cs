@@ -128,7 +128,7 @@
             this.gridControlXuatHang.Location = new System.Drawing.Point(4, 221);
             this.gridControlXuatHang.MainView = this.gridView1;
             this.gridControlXuatHang.Name = "gridControlXuatHang";
-            this.gridControlXuatHang.Size = new System.Drawing.Size(923, 252);
+            this.gridControlXuatHang.Size = new System.Drawing.Size(923, 232);
             this.gridControlXuatHang.TabIndex = 77;
             this.gridControlXuatHang.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -136,7 +136,7 @@
             // btnHuy
             // 
             this.btnHuy.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy.Image")));
-            this.btnHuy.Location = new System.Drawing.Point(816, 474);
+            this.btnHuy.Location = new System.Drawing.Point(816, 461);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(103, 44);
             this.btnHuy.TabIndex = 82;
@@ -145,7 +145,7 @@
             // btnTimKiem
             // 
             this.btnTimKiem.Image = ((System.Drawing.Image)(resources.GetObject("btnTimKiem.Image")));
-            this.btnTimKiem.Location = new System.Drawing.Point(711, 474);
+            this.btnTimKiem.Location = new System.Drawing.Point(711, 461);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(103, 44);
             this.btnTimKiem.TabIndex = 81;
@@ -154,7 +154,7 @@
             // btnXoaXuat
             // 
             this.btnXoaXuat.Image = ((System.Drawing.Image)(resources.GetObject("btnXoaXuat.Image")));
-            this.btnXoaXuat.Location = new System.Drawing.Point(607, 474);
+            this.btnXoaXuat.Location = new System.Drawing.Point(607, 461);
             this.btnXoaXuat.Name = "btnXoaXuat";
             this.btnXoaXuat.Size = new System.Drawing.Size(103, 44);
             this.btnXoaXuat.TabIndex = 80;
@@ -163,7 +163,7 @@
             // btnSuaXuat
             // 
             this.btnSuaXuat.Image = ((System.Drawing.Image)(resources.GetObject("btnSuaXuat.Image")));
-            this.btnSuaXuat.Location = new System.Drawing.Point(503, 474);
+            this.btnSuaXuat.Location = new System.Drawing.Point(503, 461);
             this.btnSuaXuat.Name = "btnSuaXuat";
             this.btnSuaXuat.Size = new System.Drawing.Size(103, 44);
             this.btnSuaXuat.TabIndex = 79;
@@ -214,7 +214,7 @@
             // btnThemXuatHang
             // 
             this.btnThemXuatHang.Image = ((System.Drawing.Image)(resources.GetObject("btnThemXuatHang.Image")));
-            this.btnThemXuatHang.Location = new System.Drawing.Point(399, 475);
+            this.btnThemXuatHang.Location = new System.Drawing.Point(399, 462);
             this.btnThemXuatHang.Name = "btnThemXuatHang";
             this.btnThemXuatHang.Size = new System.Drawing.Size(103, 44);
             this.btnThemXuatHang.TabIndex = 78;

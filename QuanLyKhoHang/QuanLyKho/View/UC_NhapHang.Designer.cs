@@ -217,43 +217,48 @@
             // lbnhomma
             // 
             this.lbnhomma.AutoSize = true;
+            this.lbnhomma.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lbnhomma.Location = new System.Drawing.Point(24, 211);
             this.lbnhomma.Name = "lbnhomma";
-            this.lbnhomma.Size = new System.Drawing.Size(51, 13);
+            this.lbnhomma.Size = new System.Drawing.Size(63, 16);
             this.lbnhomma.TabIndex = 30;
             this.lbnhomma.Text = "Mã nhóm";
             // 
             // lbdongia
             // 
             this.lbdongia.AutoSize = true;
+            this.lbdongia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lbdongia.Location = new System.Drawing.Point(380, 85);
             this.lbdongia.Name = "lbdongia";
-            this.lbdongia.Size = new System.Drawing.Size(44, 13);
+            this.lbdongia.Size = new System.Drawing.Size(54, 16);
             this.lbdongia.TabIndex = 32;
             this.lbdongia.Text = "Đơn giá";
             // 
             // txtdongia
             // 
+            this.txtdongia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtdongia.Location = new System.Drawing.Point(523, 85);
             this.txtdongia.Name = "txtdongia";
-            this.txtdongia.Size = new System.Drawing.Size(175, 20);
+            this.txtdongia.Size = new System.Drawing.Size(175, 22);
             this.txtdongia.TabIndex = 33;
             this.txtdongia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtdongia_KeyPress);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label8.Location = new System.Drawing.Point(380, 59);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(59, 13);
+            this.label8.Size = new System.Drawing.Size(74, 16);
             this.label8.TabIndex = 35;
             this.label8.Text = "Ngày nhập";
             // 
             // txtngaynhap
             // 
+            this.txtngaynhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtngaynhap.Location = new System.Drawing.Point(523, 59);
             this.txtngaynhap.Name = "txtngaynhap";
-            this.txtngaynhap.Size = new System.Drawing.Size(175, 20);
+            this.txtngaynhap.Size = new System.Drawing.Size(175, 22);
             this.txtngaynhap.TabIndex = 36;
             this.txtngaynhap.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtngaynhap_KeyPress);
             // 
@@ -267,10 +272,11 @@
             // 
             // cbbmanhom
             // 
+            this.cbbmanhom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cbbmanhom.FormattingEnabled = true;
             this.cbbmanhom.Location = new System.Drawing.Point(156, 211);
             this.cbbmanhom.Name = "cbbmanhom";
-            this.cbbmanhom.Size = new System.Drawing.Size(175, 21);
+            this.cbbmanhom.Size = new System.Drawing.Size(175, 24);
             this.cbbmanhom.TabIndex = 38;
             // 
             // cbbmakho
@@ -284,18 +290,20 @@
             // lbmanhacungcap
             // 
             this.lbmanhacungcap.AutoSize = true;
+            this.lbmanhacungcap.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lbmanhacungcap.Location = new System.Drawing.Point(383, 37);
             this.lbmanhacungcap.Name = "lbmanhacungcap";
-            this.lbmanhacungcap.Size = new System.Drawing.Size(91, 13);
+            this.lbmanhacungcap.Size = new System.Drawing.Size(110, 16);
             this.lbmanhacungcap.TabIndex = 40;
             this.lbmanhacungcap.Text = "Mã nhà cung cấp";
             // 
             // cbbmanhacungcap
             // 
+            this.cbbmanhacungcap.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cbbmanhacungcap.FormattingEnabled = true;
             this.cbbmanhacungcap.Location = new System.Drawing.Point(523, 30);
             this.cbbmanhacungcap.Name = "cbbmanhacungcap";
-            this.cbbmanhacungcap.Size = new System.Drawing.Size(175, 21);
+            this.cbbmanhacungcap.Size = new System.Drawing.Size(175, 24);
             this.cbbmanhacungcap.TabIndex = 41;
             // 
             // UC_NhapHang
