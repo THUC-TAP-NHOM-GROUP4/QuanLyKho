@@ -59,6 +59,8 @@
   <ItemGroup>
     <Compile Include="Controller\Controllers.cs" />
     <Compile Include="Controller\DataAccess.cs" />
+    <Compile Include="Controller\Hepl.cs" />
+    <Compile Include="Model\ChitietPhieuNhap.cs" />
     <Compile Include="Model\ChiTietPhieuXuat.cs" />
     <Compile Include="Model\HangHoa.cs" />
     <Compile Include="Model\HangHoaNhap.cs" />
