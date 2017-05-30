@@ -19,9 +19,10 @@ namespace QuanLyKho.Model
         public double thanhtien { get; set; }
         public List<ChitietPhieuNhap> DSChiTietPhieuNhap { get; set; }
         DataAccess da = new DataAccess();
-        public void ThemVaoChitiet(string hanghoama, int soluong, float dongia)
+        public void ThemVaoChitiet(string hanghoama, string khoma, int soluong, float dongia)
         {
             da.NonQuery("ThemVaoChiTietPhieuNhap", new SqlParameter("@hanghoama", hanghoama),
+                                                   new SqlParameter("@khoma", khoma),
                                                    new SqlParameter("@soluong", soluong),
                                                    new SqlParameter("@dongia", dongia));
         }
