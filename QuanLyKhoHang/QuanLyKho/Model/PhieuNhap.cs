@@ -19,14 +19,13 @@ namespace QuanLyKho.Model
         public String NhanVienMa { get; set; }
         
         DataAccess da = new DataAccess();
-        public void ThemPhieuNhap(string nhanvienma, DateTime ngay, string nhacungcapma, string nguoigiao, string noidung,string khoma)
+        public void ThemPhieuNhap(string nhanvienma, DateTime ngay, string nhacungcapma, string nguoigiao, string noidung)
         {
             da.NonQuery("ThemPhieuNhap", new SqlParameter("@nhanvienma", nhanvienma),
                                          new SqlParameter("@ngay", ngay),
                                          new SqlParameter("@nhacungcapma", nhacungcapma),
                                          new SqlParameter("@nguoigiaoma", nguoigiao),
-                                         new SqlParameter("@noidung", noidung),
-                                         new SqlParameter("@khoma", khoma));
+                                         new SqlParameter("@noidung", noidung));
         }
 
     }

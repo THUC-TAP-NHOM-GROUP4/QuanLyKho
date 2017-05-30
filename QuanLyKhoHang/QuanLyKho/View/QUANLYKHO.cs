@@ -164,7 +164,10 @@ namespace QuanLyKho
         {
             Ribbon.SelectedPage = rPThongKe;
         }
-
+        private void navBarItem_Huongdan_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            Ribbon.SelectedPage = ribbonPage1;
+        }
         private void bbiTrangChu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             XtraTabPage tabTrangChu_danhsach = new XtraTabPage();
@@ -178,6 +181,31 @@ namespace QuanLyKho
             ds.Dock = DockStyle.Fill;
             ds.Show();
             xtraTabControl1.SelectedTabPage = xtraTabControl1.TabPages[ViTriTabPage(tabTrangChu_danhsach.Text)];
+        }
+
+        private void huongdan_Click(object sender, EventArgs e)
+        {
+
+        }
+       
+        private void huongdan_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+           
+        }
+
+        private void barButtonItem5_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            XtraTabPage tabTK_DoanhThu = new XtraTabPage();
+            tabTK_DoanhThu.Text = "Hướng dẫn sử dụng phần mềm";
+            if (KiemTraTabPage(tabTK_DoanhThu.Text) == false)
+                xtraTabControl1.TabPages.Add(tabTK_DoanhThu);
+            else
+                tabTK_DoanhThu.PageVisible = true;
+            UC_Huongdan ds = new UC_Huongdan();
+            ds.Parent = xtraTabControl1.TabPages[ViTriTabPage(tabTK_DoanhThu.Text)];
+            ds.Dock = DockStyle.Fill;
+            ds.Show();
+            xtraTabControl1.SelectedTabPage = xtraTabControl1.TabPages[ViTriTabPage(tabTK_DoanhThu.Text)];
         }
     }
 }
