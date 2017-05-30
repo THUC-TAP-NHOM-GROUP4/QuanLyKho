@@ -221,6 +221,7 @@
             this.txtSoLuongHangXuat.Name = "txtSoLuongHangXuat";
             this.txtSoLuongHangXuat.Size = new System.Drawing.Size(175, 22);
             this.txtSoLuongHangXuat.TabIndex = 74;
+            this.txtSoLuongHangXuat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoLuongHangXuat_KeyPress);
             // 
             // txtTenHang
             // 
