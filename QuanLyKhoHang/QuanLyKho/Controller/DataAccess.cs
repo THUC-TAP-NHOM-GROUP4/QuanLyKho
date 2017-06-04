@@ -11,6 +11,7 @@ namespace QuanLyKho.Controller
     class DataAccess
     {
         static string constr = @"Data Source=DESKTOP-4KR3HIP\SQLEXPRESS;Initial Catalog=TTN_QLKho;Integrated Security=True";
+
         private static SqlConnection con = new SqlConnection(constr);
         public DataTable Query(string sql, params SqlParameter[] pr)
         {

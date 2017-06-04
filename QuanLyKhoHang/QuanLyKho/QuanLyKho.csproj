@@ -59,10 +59,14 @@
   <ItemGroup>
     <Compile Include="Controller\Controllers.cs" />
     <Compile Include="Controller\DataAccess.cs" />
+    <Compile Include="Controller\Hepl.cs" />
+    <Compile Include="Model\ChitietPhieuNhap.cs" />
     <Compile Include="Model\ChiTietPhieuXuat.cs" />
     <Compile Include="Model\HangHoa.cs" />
     <Compile Include="Model\HangHoaNhap.cs" />
     <Compile Include="Model\HienThiPhieuXuat.cs" />
+    <Compile Include="Model\KhachHang.cs" />
+    <Compile Include="Model\Kho.cs" />
     <Compile Include="Model\NhanVien.cs" />
     <Compile Include="Model\PhieuNhap.cs" />
     <Compile Include="Model\PhieuXuat.cs" />
