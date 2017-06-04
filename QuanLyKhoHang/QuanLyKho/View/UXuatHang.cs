@@ -176,25 +176,33 @@ namespace QuanLyKho.View
             px.NoiDung = cbbNoiDungXuat.Text.ToString().Trim();
             px.KhoMa = cbbPhieuXuatMaKho.Text.ToString().Trim();
             px.NhanVienMa = cbbPhieuXuatMaNhanVien.SelectedValue.ToString().Trim();
-            px.TongTien = float.Parse(txtPhieuXuatTongTien.Text.ToString().Trim());
-            control.insertPX(px);
-            int hesoquydoi = 0;
-            ChiTietPhieuXuat ctpx = new ChiTietPhieuXuat();
-            foreach (DataRow row in dt.Rows)
+            if (txtPhieuXuatTongTien.Text == "")
             {
-
-                ctpx.HangHoaMa = row[0].ToString();
-                ctpx.KhoMa = row[1].ToString();
-                ctpx.SoLuong = int.Parse(row[2].ToString());
-                double dongia = 0;
-                double.TryParse(row[3].ToString(), out dongia);
-                ctpx.DonGia = dongia;
-                control.insertChiTietPX(ctpx, px.Ma);
-
-
+                MessageBox.Show("Yêu cầu kiểm tra thông tin xuất hàng");
             }
+            else
+            {
+                px.TongTien = float.Parse(txtPhieuXuatTongTien.Text.ToString().Trim());
 
-            MessageBox.Show("Đã lưu hóa đơn!");
+                control.insertPX(px);
+               // int hesoquydoi = 0;
+                ChiTietPhieuXuat ctpx = new ChiTietPhieuXuat();
+                foreach (DataRow row in dt.Rows)
+                {
+
+                    ctpx.HangHoaMa = row[0].ToString();
+                    ctpx.KhoMa = row[1].ToString();
+                    ctpx.SoLuong = int.Parse(row[2].ToString());
+                    double dongia = 0;
+                    double.TryParse(row[3].ToString(), out dongia);
+                    ctpx.DonGia = dongia;
+                    control.insertChiTietPX(ctpx, px.Ma);
+
+
+                }
+
+                MessageBox.Show("Đã lưu hóa đơn!");
+            }
          }
 
         private void sbtnHuyXuat_Click(object sender, EventArgs e)
