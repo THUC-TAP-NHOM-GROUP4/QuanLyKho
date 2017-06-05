@@ -70,6 +70,12 @@
     <Compile Include="Model\NhanVien.cs" />
     <Compile Include="Model\PhieuNhap.cs" />
     <Compile Include="Model\PhieuXuat.cs" />
+    <Compile Include="View\frmChitietphieunhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmChitietphieunhap.Designer.cs">
+      <DependentUpon>frmChitietphieunhap.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\QUANLYKHO.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\UC_Huongdan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC_Huongdan.Designer.cs">
+      <DependentUpon>UC_Huongdan.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\UC_NhapHang.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -108,6 +120,9 @@
     <Compile Include="View\UXuatHang.Designer.cs">
       <DependentUpon>UXuatHang.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\frmChitietphieunhap.resx">
+      <DependentUpon>frmChitietphieunhap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\QUANLYKHO.resx">
       <DependentUpon>QUANLYKHO.cs</DependentUpon>
     </EmbeddedResource>
@@ -121,6 +136,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\UC_Huongdan.resx">
+      <DependentUpon>UC_Huongdan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\UC_NhapHang.resx">
       <DependentUpon>UC_NhapHang.cs</DependentUpon>
     </EmbeddedResource>

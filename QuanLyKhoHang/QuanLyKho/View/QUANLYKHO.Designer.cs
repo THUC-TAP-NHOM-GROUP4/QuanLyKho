@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QUANLYKHO));
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-            DevExpress.XtraBars.Ribbon.GalleryItem galleryItem1 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+            DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit repositoryItemPictureEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup3 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItem galleryItem3 = new DevExpress.XtraBars.Ribbon.GalleryItem();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
+            this.huongdan = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem_TrangChu = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem_NhapHang = new DevExpress.XtraNavBar.NavBarItem();
@@ -60,52 +62,59 @@
             this.bbiDangXuat = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.skinHT = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
-            this.repositoryItemPictureEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
             this.ribbonGalleryBarItem1 = new DevExpress.XtraBars.RibbonGalleryBarItem();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem_ThongKe_NhapXuat = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.rPHuongdan = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bbtntimkiem = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.navBarItem_Huongdan = new DevExpress.XtraNavBar.NavBarItem();
+            this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
+            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.huongdan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(repositoryItemPictureEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rPHuongdan)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
             // 
-            this.panelControl1.Controls.Add(this.navBarControl1);
+            this.panelControl1.Controls.Add(this.huongdan);
             this.panelControl1.Location = new System.Drawing.Point(0, 145);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(200, 553);
             this.panelControl1.TabIndex = 1;
             // 
-            // navBarControl1
+            // huongdan
             // 
-            this.navBarControl1.ActiveGroup = this.navBarGroup1;
-            this.navBarControl1.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
+            this.huongdan.ActiveGroup = this.navBarGroup1;
+            this.huongdan.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
             this.navBarGroup1,
             this.navBarGroup2});
-            this.navBarControl1.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
+            this.huongdan.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
             this.navBarItem_TrangChu,
             this.navBarItem_NhapHang,
             this.navBarItem_XuatHang,
-            this.navBarItem_ThongKe});
-            this.navBarControl1.Location = new System.Drawing.Point(6, 5);
-            this.navBarControl1.Name = "navBarControl1";
-            this.navBarControl1.OptionsNavPane.ExpandedWidth = 189;
-            this.navBarControl1.Size = new System.Drawing.Size(189, 535);
-            this.navBarControl1.TabIndex = 0;
-            this.navBarControl1.Text = "navBarControl1";
+            this.navBarItem_ThongKe,
+            this.navBarItem_Huongdan});
+            this.huongdan.Location = new System.Drawing.Point(6, 5);
+            this.huongdan.Name = "huongdan";
+            this.huongdan.OptionsNavPane.ExpandedWidth = 189;
+            this.huongdan.Size = new System.Drawing.Size(189, 535);
+            this.huongdan.TabIndex = 0;
+            this.huongdan.Text = "navBarControl1";
+            this.huongdan.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem_Huongdan_LinkClicked);
+            this.huongdan.Click += new System.EventHandler(this.huongdan_Click);
             // 
             // navBarGroup1
             // 
@@ -146,7 +155,10 @@
             // 
             // navBarGroup2
             // 
-            this.navBarGroup2.Caption = "Nội  quy ";
+            this.navBarGroup2.Caption = "Hướng dẫn sử dụng";
+            this.navBarGroup2.Expanded = true;
+            this.navBarGroup2.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem_Huongdan)});
             this.navBarGroup2.Name = "navBarGroup2";
             // 
             // panelControl2
@@ -311,11 +323,6 @@
             this.skinHT.Id = 8;
             this.skinHT.Name = "skinHT";
             // 
-            // repositoryItemPictureEdit1
-            // 
-            this.repositoryItemPictureEdit1.Name = "repositoryItemPictureEdit1";
-            this.repositoryItemPictureEdit1.ZoomAccelerationFactor = 1D;
-            // 
             // barButtonItem1
             // 
             this.barButtonItem1.Caption = "barButtonItem1";
@@ -325,7 +332,9 @@
             // barEditItem1
             // 
             this.barEditItem1.Caption = "barEditItem1";
-            this.barEditItem1.Edit = this.repositoryItemPictureEdit1;
+            repositoryItemPictureEdit1.Name = "repositoryItemPictureEdit1";
+            repositoryItemPictureEdit1.ZoomAccelerationFactor = 1D;
+            this.barEditItem1.Edit = repositoryItemPictureEdit1;
             this.barEditItem1.Id = 6;
             this.barEditItem1.Name = "barEditItem1";
             // 
@@ -336,12 +345,12 @@
             // 
             // 
             this.ribbonGalleryBarItem1.Gallery.AllowHoverImages = true;
-            galleryItemGroup1.Caption = "Group2";
-            galleryItem1.Caption = "Item5";
-            galleryItemGroup1.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
-            galleryItem1});
+            galleryItemGroup3.Caption = "Group2";
+            galleryItem3.Caption = "Item5";
+            galleryItemGroup3.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
+            galleryItem3});
             this.ribbonGalleryBarItem1.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            galleryItemGroup1});
+            galleryItemGroup3});
             this.ribbonGalleryBarItem1.Id = 7;
             this.ribbonGalleryBarItem1.Name = "ribbonGalleryBarItem1";
             // 
@@ -365,11 +374,11 @@
             this.barButtonItem_ThongKe_NhapXuat.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.barButtonItem_ThongKe_NhapXuat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_ThongKe_NhapXuat_ItemClick);
             // 
-            // ribbonControl1
+            // rPHuongdan
             // 
-            this.ribbonControl1.ExpandCollapseItem.Id = 0;
-            this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.ribbonControl1.ExpandCollapseItem,
+            this.rPHuongdan.ExpandCollapseItem.Id = 0;
+            this.rPHuongdan.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.rPHuongdan.ExpandCollapseItem,
             this.barButtonItem1,
             this.bbiDangNhap,
             this.bbiDangXuat,
@@ -386,20 +395,19 @@
             this.bbiTrangChu,
             this.bbtnCapnhat,
             this.bbtntimkiem,
-            this.barButtonItem4});
-            this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 20;
-            this.ribbonControl1.Name = "ribbonControl1";
-            this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
+            this.barButtonItem4,
+            this.barButtonItem5});
+            this.rPHuongdan.Location = new System.Drawing.Point(0, 0);
+            this.rPHuongdan.MaxItemId = 21;
+            this.rPHuongdan.Name = "rPHuongdan";
+            this.rPHuongdan.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rpTrangChu,
             this.rPNhapHang,
             this.rPXuatHang,
             this.rPThongKe,
             this.ribbonPage1});
-            this.ribbonControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemPictureEdit1});
-            this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010;
-            this.ribbonControl1.Size = new System.Drawing.Size(1148, 143);
+            this.rPHuongdan.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010;
+            this.rPHuongdan.Size = new System.Drawing.Size(1148, 143);
             // 
             // bbtntimkiem
             // 
@@ -416,8 +424,34 @@
             // 
             // ribbonPage1
             // 
+            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup5});
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "Hướng dẫn";
+            // 
+            // navBarItem_Huongdan
+            // 
+            this.navBarItem_Huongdan.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
+            this.navBarItem_Huongdan.Caption = "Hướng dẫn sử dụng phần mềm";
+            this.navBarItem_Huongdan.Name = "navBarItem_Huongdan";
+            // 
+            // ribbonPageGroup5
+            // 
+            this.ribbonPageGroup5.ItemLinks.Add(this.barButtonItem5);
+            this.ribbonPageGroup5.Name = "ribbonPageGroup5";
+            this.ribbonPageGroup5.Text = "rpHuongdan";
+            // 
+            // barButtonItem5
+            // 
+            this.barButtonItem5.Caption = "Hướng dẫn";
+            this.barButtonItem5.Id = 20;
+            this.barButtonItem5.Name = "barButtonItem5";
+            this.barButtonItem5.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem5_ItemClick);
+            // 
+            // popupMenu1
+            // 
+            this.popupMenu1.Name = "popupMenu1";
+            this.popupMenu1.Ribbon = this.rPHuongdan;
             // 
             // QUANLYKHO
             // 
@@ -427,21 +461,22 @@
             this.ClientSize = new System.Drawing.Size(1148, 697);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
-            this.Controls.Add(this.ribbonControl1);
+            this.Controls.Add(this.rPHuongdan);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "QUANLYKHO";
-            this.Ribbon = this.ribbonControl1;
+            this.Ribbon = this.rPHuongdan;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý kho";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.huongdan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(repositoryItemPictureEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rPHuongdan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -450,7 +485,7 @@
         #endregion
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.PanelControl panelControl2;
-        private DevExpress.XtraNavBar.NavBarControl navBarControl1;
+        private DevExpress.XtraNavBar.NavBarControl huongdan;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup1;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup2;
         private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
@@ -477,17 +512,20 @@
         private DevExpress.XtraBars.BarButtonItem bbiDangXuat;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraBars.SkinRibbonGalleryBarItem skinHT;
-        private DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit repositoryItemPictureEdit1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarEditItem barEditItem1;
         private DevExpress.XtraBars.RibbonGalleryBarItem ribbonGalleryBarItem1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem_ThongKe_NhapXuat;
-        private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
+        private DevExpress.XtraBars.Ribbon.RibbonControl rPHuongdan;
         private DevExpress.XtraBars.BarButtonItem bbtntimkiem;
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem_Huongdan;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem5;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
+        private DevExpress.XtraBars.PopupMenu popupMenu1;
     }
 }
 
